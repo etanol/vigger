@@ -9,9 +9,10 @@
 //
 // .: initializeGL [protected] :.
 //
-// Inicialización del pipeline de OpenGL. Los valores iniciales de colores y luz
-// no se han parametrizado por falta de tiempo y por pereza. Cualquier cambio en
-// los colores iniciales se debe reflejar en la interfaz también (ventana.ui.h).
+// Inicialización del pipeline de OpenGL.  Los valores iniciales de colores y
+// luz no se han parametrizado por falta de tiempo y por pereza.  Cualquier
+// cambio en los colores iniciales se debe reflejar en la interfaz también
+// (ventana.ui.h).
 //
 void GLWidget::initializeGL ()
 {
@@ -53,7 +54,7 @@ void GLWidget::initializeGL ()
 //
 // .: resizeGL [protected] :.
 //
-// Redimensionado del área de pintado de nuestro GLWidget. Prinipalmente
+// Redimensionado del área de pintado de nuestro GLWidget.  Prinipalmente
 // interesa calcular la nueva relación de aspecto para aprovechar al máximo el
 // nuevo área.
 //
@@ -69,7 +70,7 @@ void GLWidget::resizeGL (int width, int height)
 //
 // .: paintGL [protected] :.
 //
-// Función central de toda la aplicación. Aquí se dibuja un frame coordinando
+// Función central de toda la aplicación.  Aquí se dibuja un frame coordinando
 // todos las demás métodos importantes.
 //
 void GLWidget::paintGL (void)
@@ -107,11 +108,11 @@ void GLWidget::paintGL (void)
             glRotatef(ani_probot[i].angulo, 0.0, 1.0, 0.0);
             if (ani_probot[i].seleccionado) {
                 glMaterialfv(GL_FRONT_AND_BACK, GL_AMBIENT,
-                        col_sel_amb[ani_probot[i].tipo_seleccion]);
+                                     col_sel_amb[ani_probot[i].tipo_seleccion]);
                 glMaterialfv(GL_FRONT_AND_BACK, GL_DIFFUSE,
-                        col_sel_dif[ani_probot[i].tipo_seleccion]);
+                                     col_sel_dif[ani_probot[i].tipo_seleccion]);
                 glMaterialfv(GL_FRONT_AND_BACK, GL_SPECULAR,
-                        col_sel_esp[ani_probot[i].tipo_seleccion]);
+                                     col_sel_esp[ani_probot[i].tipo_seleccion]);
                 // El brillo se mantiene fijo siempre para los seleccionados
                 glMaterialf(GL_FRONT_AND_BACK, GL_SHININESS, 10.0);
             }
@@ -123,10 +124,10 @@ void GLWidget::paintGL (void)
     if (!sel_pintafrustum || cam_primera || (sel_robot < 0))
         return;
 
-    GLdouble mm[16];   // Matriz de Modelización
-    GLdouble mp[16];   // Matriz de Proyección
-    GLint    vp[4];    // ViewPort
-    GLdouble cf[24];   // Coordenadas del Frustum
+    GLdouble mm[16];     // Matriz de Modelización
+    GLdouble mp[16];     // Matriz de Proyección
+    GLint    vp[4];      // ViewPort
+    GLdouble cf[24];     // Coordenadas del Frustum
 
     double v1[3], v2[3]; // Vectores para calcular normales
     double n[3];         // Vector normal calculado
@@ -261,13 +262,13 @@ void GLWidget::paintGL (void)
 // .: prodVectorial [private] :.
 //
 // Calcula el producto vectorial de los vectores "u" y "v" colocando el
-// resultado en el vector "n". El producto vectorial de dos vectores nos
+// resultado en el vector "n".  El producto vectorial de dos vectores nos
 // proporcian el vector normal al plano que aquellos forman.
 //
 void GLWidget::prodVectorial (double u[3], double v[3], double n[3])
 {
-    n[0]= u[1]*v[2] - u[2]*v[1];
-    n[1]= u[2]*v[0] - u[0]*v[2];
-    n[2]= u[0]*v[1] - u[1]*v[0];
+    n[0] = u[1] * v[2] - u[2] * v[1];
+    n[1] = u[2] * v[0] - u[0] * v[2];
+    n[2] = u[0] * v[1] - u[1] * v[0];
 }
 

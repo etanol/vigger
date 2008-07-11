@@ -14,9 +14,8 @@
 #include <cmath>
 #include "modelo.h"
 
-
-class GLWidget : public QGLWidget {
-
+class GLWidget : public QGLWidget
+{
     Q_OBJECT
 
 public:
@@ -38,7 +37,7 @@ public:
     void setColVisi  (int r, int g, int b);
 
     inline float *getPosLuz (int i) { return ilu_posicion[i]; }
-    inline bool   getRefLuz (int i) { return ilu_camara[i]; }
+    inline bool   getRefLuz (int i) { return ilu_camara[i];   }
     inline void   setColorFondo (int r, int g, int b)
         { glClearColor(colorf(r), colorf(g), colorf(b), 1.0); }
 
@@ -62,16 +61,16 @@ signals:
 public slots:
 
     // Los sencillos primero
-    inline void setAnguloX    (int a) { cam_angulox = a; updateGL(); }
-    inline void setAnguloY    (int a) { cam_anguloy = a; updateGL(); }
-    inline void setAnguloZ    (int a) { cam_anguloz = a; updateGL(); }
-    inline void setApertura   (int a) { cam_anguloa0 = a; ajustaApertura(); updateGL(); }
-    inline void setDistancia  (int d) { setDistancia(decimal(d)); }
-    inline void setVAngular   (int v) { ani_vangular = v; }
-    inline void setVLineal    (int v) { ani_vlineal = v; ajustaVLineal(); }
-    inline void setAltura     (int a) { ani_arobots = decimal(a); updateGL(); }
-    inline void setRotacionRob(int r) { robot.rota(r * 90); updateGL(); }
-    inline void setPintaFrus  (bool s) { sel_pintafrustum = s; updateGL(); }
+    inline void setAnguloX    (int a)  { cam_angulox = a; updateGL();          }
+    inline void setAnguloY    (int a)  { cam_anguloy = a; updateGL();          }
+    inline void setAnguloZ    (int a)  { cam_anguloz = a; updateGL();          }
+    inline void setApertura   (int a)  { cam_anguloa0 = a; ajustaApertura(); updateGL(); }
+    inline void setDistancia  (int d)  { setDistancia(decimal(d));             }
+    inline void setVAngular   (int v)  { ani_vangular = v;                     }
+    inline void setVLineal    (int v)  { ani_vlineal = v; ajustaVLineal();     }
+    inline void setAltura     (int a)  { ani_arobots = decimal(a); updateGL(); }
+    inline void setRotacionRob(int r)  { robot.rota(r * 90); updateGL();       }
+    inline void setPintaFrus  (bool s) { sel_pintafrustum = s; updateGL();     }
 
     // Ahora los no tan sencillos :-P
     void reseteaCam    ();            // -+- camara.cpp
@@ -106,13 +105,13 @@ private:
     static const int MAX_LUCES  = 3;
 
     // Métodos auxiliares triviales
-    inline int    entero  (double n) { return static_cast<int>(n * 10.0); }
-    inline int    signo   (int    n) { return (n >> ((sizeof(int)*8)-1)) | 1; }
-    inline double decimal (int    n) { return static_cast<double>(n) * 0.1; }
-    inline double grados  (double r) { return r * (180.0 / M_PI); }
-    inline double radianes(double g) { return g * (M_PI / 180.0); }
+    inline int    entero  (double n) { return static_cast<int>(n * 10.0);      }
+    inline int    signo   (int    n) { return (n >> ((sizeof(int)*8)-1)) | 1;  }
+    inline double decimal (int    n) { return static_cast<double>(n) * 0.1;    }
+    inline double grados  (double r) { return r * (180.0 / M_PI);              }
+    inline double radianes(double g) { return g * (M_PI / 180.0);              }
     inline double radianes(int    g) { return radianes(static_cast<double>(g));}
-    inline float  colorf  (int    c) { return static_cast<float>(c) / 255.0; }
+    inline float  colorf  (int    c) { return static_cast<float>(c) / 255.0;   }
 
     // Métodos auxiliares
     void ajustaRecorteZ     ();                             // -+- camara.cpp

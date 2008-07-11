@@ -11,7 +11,7 @@
 // .: setMarcaVis [public slot] :.
 //
 // Cuando no queramos que se marquen los visibles debemos asegurarnos de que no
-// se pintarán marcados. Por eso hacemos un bucle que los desmarque todos.
+// se pintarán marcados.  Por eso hacemos un bucle que los desmarque todos.
 //
 void GLWidget::setMarcaVis (bool si)
 {
@@ -28,10 +28,10 @@ void GLWidget::setMarcaVis (bool si)
 // .: seleccionaRobot [private] :.
 //
 // Dadas unas coordenadas de pantalla "x" e "y", tenemos que encontrar el robot
-// que ha sido escogido y hacer las acciones correspondientes. En este método
+// que ha sido escogido y hacer las acciones correspondientes.  En este método
 // entendemos como robot seleccionado aquel que viene dado por el campo
 // "sel_robot" y como robot escogido el que se encuentra en las coordenadas "x"
-// e "y". La casuística es la siguiente:
+// e "y".  La casuística es la siguiente:
 //
 //   * En las coordenadas no hay ningún robot: no se hace nada.
 //   * No hay ningún robot seleccionado: seleccionamos el que se ha escogido.
@@ -125,16 +125,16 @@ void GLWidget::seleccionaRobot (int x, int y)
 // .: marcaVisibles [private] :.
 //
 // Éste método algo más sencillo que el anterior porque se trata de un recorrido
-// y no una búsqueda. Además no necesitamos el pick matrix, con lo que no es
-// necesario consultar el viewport ni las coordenadas del ratón. Únicamente hace
-// falta poner la cámara en primera persona, pintar los robots en modo selección
-// (salvo el robot que hace de cámara) y ver cuántos hits hay para marcar los
-// correspondientes afectados.
+// y no una búsqueda.  Además no necesitamos el pick matrix, con lo que no es
+// necesario consultar el viewport ni las coordenadas del ratón.  Únicamente
+// hace falta poner la cámara en primera persona, pintar los robots en modo
+// selección (salvo el robot que hace de cámara) y ver cuántos hits hay para
+// marcar los correspondientes afectados.
 //
 // La activación de esta función carga mucho la aplicación porque prácticamente
-// pinta dos veces la escena en cada frame. Por eso comprobamos si no hay ningún
-// robot seleccionado justo al principiom, para ver si nos podemos ahorrar
-// trabajo.
+// pinta dos veces la escena en cada frame.  Por eso comprobamos si no hay
+// ningún robot seleccionado justo al principiom, para ver si nos podemos
+// ahorrar trabajo.
 //
 void GLWidget::marcaVisibles()
 {

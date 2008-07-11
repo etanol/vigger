@@ -4,11 +4,11 @@
 //
 #ifndef _VDISPLAY_H_
 #define _VDISPLAY_H_
+
 #include <QLineEdit>
 
-
-class VDisplay : public QLineEdit {
-
+class VDisplay : public QLineEdit
+{
     Q_OBJECT
 
 public:

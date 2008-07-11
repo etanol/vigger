@@ -6,7 +6,8 @@
 
 #include <lib3ds/file.h>
 
-class Modelo {
+class Modelo
+{
 
 public:
 
@@ -45,6 +46,7 @@ private:
     static const float L_AMBIENTE_DEF[4];
     static const float L_DIFFUSO_DEF[4];
     static const float L_ESPECULAR_DEF[4];
+
 };
 
-#endif /* _MODELO_H_ */
+#endif // _MODELO_H_

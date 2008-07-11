@@ -111,7 +111,7 @@ void GLWidget::mouseMoveEvent (QMouseEvent *ev)
         cam_angulox = aux_angulox + (ev->y() - aux_ry);
         rectificaRotaciones(); // Los emits se hacen aquí
     } else if (ev->buttons() & Qt::RightButton) {
-        // Restauramos el panning y sumamos las variaciones. Los casts se hacen
+        // Restauramos el panning y sumamos las variaciones.  Los casts se hacen
         // implícitamente
         cam_panx = aux_panx + (cam_avance * (ev->x() - aux_rx));
         cam_pany = aux_pany + (cam_avance * (aux_ry  - ev->y()));
@@ -127,7 +127,7 @@ void GLWidget::mouseMoveEvent (QMouseEvent *ev)
 // .: wheelEvent [protected virtual] :.
 //
 // Para explotar al máximo el dispositivo del ratón se decidió aprovechar este
-// evento para aquellos ratones que tuvieran la rueda del scroll. Así se
+// evento para aquellos ratones que tuvieran la rueda del scroll.  Así se
 // implementan los zooms: óptico y de proximidad.
 //
 void GLWidget::wheelEvent (QWheelEvent *ev)

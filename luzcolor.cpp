@@ -36,7 +36,7 @@ void GLWidget::activaLuz (int i, bool si)
 //
 // .: getColLuz [public] :.
 //
-// Consulta el color de la componente "t" en la luz "i". El resultado se
+// Consulta el color de la componente "t" en la luz "i".  El resultado se
 // transforma en un array de enteros del intervalo [0, 255] que se colocan en
 // "col".
 //
@@ -44,9 +44,9 @@ void GLWidget::getColLuz (int i, int t, int *col)
 {
     GLenum componente;
     switch (t) {
-        case 0: componente = GL_AMBIENT; break;
-        case 1: componente = GL_DIFFUSE; break;
-        case 2: componente = GL_SPECULAR; break;
+        case  0: componente = GL_AMBIENT;  break;
+        case  1: componente = GL_DIFFUSE;  break;
+        case  2: componente = GL_SPECULAR; break;
         default: return;
     }
 
@@ -62,16 +62,16 @@ void GLWidget::getColLuz (int i, int t, int *col)
 // .: setColLuz [public] :.
 //
 // Cambia el color de la componente "t" en la luz "i" según "r", "g" y "b" que
-// son enteros en el intervalo [0, 255]. Cada byte de color se transforma en un
+// son enteros en el intervalo [0, 255].  Cada byte de color se transforma en un
 // float en [0, 1].
 //
 void GLWidget::setColLuz (int i, int t, int r, int g, int b)
 {
     GLenum componente;
     switch (t) {
-        case 0: componente = GL_AMBIENT; break;
-        case 1: componente = GL_DIFFUSE; break;
-        case 2: componente = GL_SPECULAR; break;
+        case  0: componente = GL_AMBIENT;  break;
+        case  1: componente = GL_DIFFUSE;  break;
+        case  2: componente = GL_SPECULAR; break;
         default: return;
     }
 
@@ -83,7 +83,7 @@ void GLWidget::setColLuz (int i, int t, int r, int g, int b)
 //
 // .: setPosLuz [public] :.
 //
-// Coloca la luz "i" en la posición "x", "y" y "z". Estas coordenadas serán
+// Coloca la luz "i" en la posición "x", "y" y "z".  Estas coordenadas serán
 // respecto del observador (cámara) si "cam" es verdadero; en caso contrario las
 // coordenadas son respecto del escenario.
 //
@@ -100,10 +100,10 @@ void GLWidget::setPosLuz (int i, float x, float y, float z, bool cam)
 //
 // .: setColFrust [public] :.
 //
-// Cambia el color del frustum visualizado. Cada parámetro entero [0, 255] se
-// transforma en float. Después escalamos este color para cada componente
+// Cambia el color del frustum visualizado.  Cada parámetro entero [0, 255] se
+// transforma en float.  Después escalamos este color para cada componente
 // (ambiente, difusa, especular) así basta con un método para cambiar este
-// color. Para simplificar la interfaz estas proporciones son fijas.
+// color.  Para simplificar la interfaz estas proporciones son fijas.
 //
 void GLWidget::setColFrust (int r, int g, int b)
 {
@@ -124,7 +124,7 @@ void GLWidget::setColFrust (int r, int g, int b)
 //
 // .: setColSelec [public] :.
 //
-// Cambia el color de los seleccionados. Igual que antes los elementos de color
+// Cambia el color de los seleccionados.  Igual que antes los elementos de color
 // se transforman en float y cada componente se pondera según un factor fijo.
 // Ya que tenemos más de un tipo de selección, por usuario y visibles marcados,
 // los discriminamos con el parámetro "t":
@@ -154,7 +154,7 @@ void GLWidget::setColSelec (int t, int r, int g, int b)
 //
 // .: setTrFrust [public slot] :.
 //
-// Modifica el nivel de transparencia del frustum. El parámetro "trans" es un
+// Modifica el nivel de transparencia del frustum.  El parámetro "trans" es un
 // porcentaje de opacidad [0, 100] que se convierte en float.
 //
 void GLWidget::setTrFrust (int trans)

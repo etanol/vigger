@@ -9,10 +9,10 @@
 //
 // .: setNumRobots [public slot] :.
 //
-// Cambia el número de robots de la escena. Cuando se añaden robots se hace poco
-// a poco para asegurar que se sitúa cada robot en una posición segura. Si
+// Cambia el número de robots de la escena.  Cuando se añaden robots se hace
+// poco a poco para asegurar que se sitúa cada robot en una posición segura.  Si
 // eliminamos robots hay que ir con más cuidado porque el robot seleccionado
-// puede ser uno de ellos. Para no complicar demasiado este último caso
+// puede ser uno de ellos.  Para no complicar demasiado este último caso
 // directamente deseleccionaremos el robot.
 //
 void GLWidget::setNumRobots (int num)
@@ -47,7 +47,7 @@ void GLWidget::setNumRobots (int num)
 //
 // Aparte de la velocidad lineal también se puede hacer que la animación vaya
 // más suave aumentando los frames por segundo con una reducción del intervalo
-// de tiempo entre cada "timerEvent()"; que viene dado en milisegundos. Si la
+// de tiempo entre cada "timerEvent()"; que viene dado en milisegundos.  Si la
 // animación está activada, tenemos que destruir el "timer" activo y crear uno
 // nuevo con el intervalo actualizado.
 //
@@ -64,7 +64,7 @@ void GLWidget::setFPS (int fps)
 //
 // .: animaRobots [public slot] :.
 //
-// Inicia o detiene la animación de los robots. Cuando la detenemos, el
+// Inicia o detiene la animación de los robots.  Cuando la detenemos, el
 // identificador se pone a cero para que cuando modifiquemos los frames por
 // segundo podamos saber si la escena está animada o no en ese momento.
 //
@@ -82,7 +82,7 @@ void GLWidget::animaRobots (bool si)
 //
 // .: timerEvent [protected virtual] :.
 //
-// Animación de los robots. En condiciones normales el robot avanza, hasta que
+// Animación de los robots.  En condiciones normales el robot avanza, hasta que
 // se detecta una colisión (ya sea contra el límite de la escena o contra otro
 // robot) entonces se asigna una nueva dirección de movimiento (aleatoria) y se
 // empieza a girar hacia esta nueva dirección.
@@ -154,7 +154,7 @@ void GLWidget::ajustaVLineal ()
 // .: nuevoRobot [private] :.
 //
 // Inicializa el robot representado por "indice" dándole posición y dirección
-// inicial aleatorias. Hay que vigilar que estos valores sean correctos para
+// inicial aleatorias.  Hay que vigilar que estos valores sean correctos para
 // evitar las colisiones.
 //
 void GLWidget::nuevoRobot (int indice)
@@ -164,8 +164,8 @@ void GLWidget::nuevoRobot (int indice)
     double tmpx, tmpz;
 
     do {
-        tmpx = static_cast<double>(random()) * limitex;
-        tmpz = static_cast<double>(random()) * limitez;
+        tmpx  = static_cast<double>(random()) * limitex;
+        tmpz  = static_cast<double>(random()) * limitez;
         tmpx -= escenario.maxX();
         tmpz -= escenario.maxZ();
     } while (!posicionValida(indice, tmpx, tmpz));
@@ -177,8 +177,8 @@ void GLWidget::nuevoRobot (int indice)
     ani_probot[indice].x            = tmpx;
     ani_probot[indice].z            = tmpz;
     double rads = radianes(ani_probot[indice].angulo);
-    ani_probot[indice].cos_angulo = cos(rads) * ani_avance;
-    ani_probot[indice].sin_angulo = sin(rads) * ani_avance;
+    ani_probot[indice].cos_angulo   = cos(rads) * ani_avance;
+    ani_probot[indice].sin_angulo   = sin(rads) * ani_avance;
 }
 
 
@@ -198,8 +198,8 @@ bool GLWidget::posicionValida (int indice, double x, double z)
     // Si cae fuera de la caja envolvente (escenario) no vale: devuelve falso
     dx = fabs(x);
     dz = fabs(z);
-    if ((dx > (escenario.maxX() - robot.radioXZ()))
-            || (dz > (escenario.maxZ() - robot.radioXZ())))
+    if ((dx > (escenario.maxX() - robot.radioXZ())) ||
+                                    (dz > (escenario.maxZ() - robot.radioXZ())))
         return false;
     // Ahora comprobamos que no pise a ningún otro robot, salvo él mismo claro
     for (int i = 0; i < ani_nrobots; i++)

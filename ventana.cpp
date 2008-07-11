@@ -1,3 +1,9 @@
+//
+// ventana.cpp - Implementación de la clase Ventana
+//
+// Este fichero reemplaza el antiguo ventana.ui.h siguiendo los cambios
+// determinados por la migración de Qt3 a Qt4.
+//
 #include <QFileInfo>
 #include <QFileDialog>
 #include <QMessageBox>
@@ -12,64 +18,68 @@ Ventana::Ventana () : QWidget(0)
 {
     setupUi(this);
 
-    // Conexiones de signals y slots.
-    connect(btnAyuda,        SIGNAL(clicked()),           this,           SLOT(cargaAyuda()));
-    connect(btnAmbiente,     SIGNAL(clicked()),           this,           SLOT(setColorAmbiente()));
-    connect(btnCargaEs,      SIGNAL(clicked()),           this,           SLOT(cargaEscenario()));
-    connect(btnCargaRo,      SIGNAL(clicked()),           this,           SLOT(cargaRobot()));
-    connect(btnColorFondo,   SIGNAL(clicked()),           this,           SLOT(colorFondo()));
-    connect(btnDifusa,       SIGNAL(clicked()),           this,           SLOT(setColorDifusa()));
-    connect(btnEspecular,    SIGNAL(clicked()),           this,           SLOT(setColorEspecular()));
-    connect(btnFrustum,      SIGNAL(clicked()),           this,           SLOT(colorFrustum()));
-    connect(btnResetCam,     SIGNAL(clicked()),           glVista,        SLOT(reseteaCam()));
-    connect(btnSeleccionado, SIGNAL(clicked()),           this,           SLOT(setColorSeleccionado()));
-    connect(btnSalir,        SIGNAL(clicked()),           this,           SLOT(close()));
-    connect(btnVisibles,     SIGNAL(clicked()),           this,           SLOT(setColorVisibles()));
-    connect(chkCamPrimera,   SIGNAL(toggled(bool)),       glVista,        SLOT(setCamPrimera(bool)));
-    connect(chkAlambre,      SIGNAL(toggled(bool)),       glVista,        SLOT(pintaAlambre(bool)));
-    connect(chkLActiva,      SIGNAL(toggled(bool)),       this,           SLOT(cambiaEstadoLuz(bool)));
-    connect(chkMarcVisibles, SIGNAL(toggled(bool)),       glVista,        SLOT(setMarcaVis(bool)));
-    connect(chkMovimiento,   SIGNAL(toggled(bool)),       glVista,        SLOT(animaRobots(bool)));
-    connect(chkVisFrustum,   SIGNAL(toggled(bool)),       glVista,        SLOT(setPintaFrus(bool)));
-    connect(cmbLuz,          SIGNAL(activated(int)),      this,           SLOT(cambiaLuz(int)));
-    connect(cmbReferencia,   SIGNAL(activated(int)),      this,           SLOT(coordenadasLuz()));
-    connect(cmbRotaRobots,   SIGNAL(activated(int)),      glVista,        SLOT(setRotacionRob(int)));
-    connect(glVista,         SIGNAL(nuevoAR(double)),     dspAR,          SLOT(display(double)));
-    connect(glVista,         SIGNAL(nuevoPanX(double)),   dspPanX,        SLOT(display(double)));
-    connect(glVista,         SIGNAL(nuevoPanY(double)),   dspPanY,        SLOT(display(double)));
-    connect(glVista,         SIGNAL(nuevoZNear(double)),  dspzNear,       SLOT(display(double)));
-    connect(glVista,         SIGNAL(nuevoZFar(double)),   dspzFar,        SLOT(display(double)));
-    connect(glVista,         SIGNAL(nuevoAnguloA(int)),   dspApertura,    SLOT(display(int)));
-    connect(glVista,         SIGNAL(nuevoAnguloX(int)),   sldAnguloX,     SLOT(setValue(int)));
-    connect(glVista,         SIGNAL(nuevoAnguloY(int)),   sldAnguloY,     SLOT(setValue(int)));
-    connect(glVista,         SIGNAL(nuevoAnguloZ(int)),   sldAnguloZ,     SLOT(setValue(int)));
-    connect(glVista,         SIGNAL(nuevoAnguloA(int)),   sldApertura,    SLOT(setValue(int)));
-    connect(glVista,         SIGNAL(nuevaDist(int)),      sldDistancia,   SLOT(setValue(int)));
-    connect(glVista,         SIGNAL(nuevaSel(int)),       dspSeleccionado,SLOT(display(int)));
-    connect(glVista,         SIGNAL(nuevoRadio(double)),  dspRadio,       SLOT(display(double)));
-    connect(glVista,         SIGNAL(nuevoRadioXZ(double)),dspRadioXZ,     SLOT(display(double)));
-    connect(glVista,         SIGNAL(nuevoRadio(double)),  this,           SLOT(actualizaRadio(double)));
-    connect(glVista,         SIGNAL(alturas(int,int)),    this,           SLOT(actualizaAlturas(int,int)));
-    connect(sldAltura,       SIGNAL(sliderMoved(int)),    glVista,        SLOT(setAltura(int)));
-    connect(sldAltura,       SIGNAL(valueChanged(int)),   dspAltura,      SLOT(displayFloat(int)));
-    connect(sldAnguloX,      SIGNAL(valueChanged(int)),   dspAnguloX,     SLOT(display(int)));
-    connect(sldAnguloX,      SIGNAL(sliderMoved(int)),    glVista,        SLOT(setAnguloX(int)));
-    connect(sldAnguloY,      SIGNAL(valueChanged(int)),   dspAnguloY,     SLOT(display(int)));
-    connect(sldAnguloY,      SIGNAL(sliderMoved(int)),    glVista,        SLOT(setAnguloY(int)));
-    connect(sldAnguloZ,      SIGNAL(valueChanged(int)),   dspAnguloZ,     SLOT(display(int)));
-    connect(sldAnguloZ,      SIGNAL(sliderMoved(int)),    glVista,        SLOT(setAnguloZ(int)));
-    connect(sldDistancia,    SIGNAL(valueChanged(int)),   dspDistancia,   SLOT(displayFloat(int)));
-    connect(sldDistancia,    SIGNAL(sliderMoved(int)),    glVista,        SLOT(setDistancia(int)));
-    connect(sldApertura,     SIGNAL(sliderMoved(int)),    glVista,        SLOT(setApertura(int)));
-    connect(sldTransparencia,SIGNAL(valueChanged(int)),   glVista,        SLOT(setTrFrust(int)));
-    connect(sldZFarPrimera,  SIGNAL(valueChanged(int)),   glVista,        SLOT(setZFarCamPri(int)));
-    connect(spbFPS,          SIGNAL(valueChanged(int)),   glVista,        SLOT(setFPS(int)));
-    connect(spbNumRobots,    SIGNAL(valueChanged(int)),   glVista,        SLOT(setNumRobots(int)));
-    connect(spbVangular,     SIGNAL(valueChanged(int)),   glVista,        SLOT(setVAngular(int)));
-    connect(spbVlineal,      SIGNAL(valueChanged(int)),   glVista,        SLOT(setVLineal(int)));
-    connect(txtlCoordX,      SIGNAL(returnPressed()),     this,           SLOT(coordenadasLuz()));
-    connect(txtlCoordY,      SIGNAL(returnPressed()),     this,           SLOT(coordenadasLuz()));
-    connect(txtlCoordZ,      SIGNAL(returnPressed()),     this,           SLOT(coordenadasLuz()));
+    // Conexiones de signals y slots.  Para verlo mejor, ampliar la anchura de
+    // la ventana del editor hasta 110 columnas.
+    //
+    // Las conexiones se programan aquí ya que en el QtDesigner de Qt4 no
+    // permite utilizar signals y slots definidos por el usuario.
+    connect(btnAyuda,         SIGNAL(clicked()),            this,            SLOT(cargaAyuda()));
+    connect(btnAmbiente,      SIGNAL(clicked()),            this,            SLOT(setColorAmbiente()));
+    connect(btnCargaEs,       SIGNAL(clicked()),            this,            SLOT(cargaEscenario()));
+    connect(btnCargaRo,       SIGNAL(clicked()),            this,            SLOT(cargaRobot()));
+    connect(btnColorFondo,    SIGNAL(clicked()),            this,            SLOT(colorFondo()));
+    connect(btnDifusa,        SIGNAL(clicked()),            this,            SLOT(setColorDifusa()));
+    connect(btnEspecular,     SIGNAL(clicked()),            this,            SLOT(setColorEspecular()));
+    connect(btnFrustum,       SIGNAL(clicked()),            this,            SLOT(colorFrustum()));
+    connect(btnResetCam,      SIGNAL(clicked()),            glVista,         SLOT(reseteaCam()));
+    connect(btnSeleccionado,  SIGNAL(clicked()),            this,            SLOT(setColorSeleccionado()));
+    connect(btnSalir,         SIGNAL(clicked()),            this,            SLOT(close()));
+    connect(btnVisibles,      SIGNAL(clicked()),            this,            SLOT(setColorVisibles()));
+    connect(chkCamPrimera,    SIGNAL(toggled(bool)),        glVista,         SLOT(setCamPrimera(bool)));
+    connect(chkAlambre,       SIGNAL(toggled(bool)),        glVista,         SLOT(pintaAlambre(bool)));
+    connect(chkLActiva,       SIGNAL(toggled(bool)),        this,            SLOT(cambiaEstadoLuz(bool)));
+    connect(chkMarcVisibles,  SIGNAL(toggled(bool)),        glVista,         SLOT(setMarcaVis(bool)));
+    connect(chkMovimiento,    SIGNAL(toggled(bool)),        glVista,         SLOT(animaRobots(bool)));
+    connect(chkVisFrustum,    SIGNAL(toggled(bool)),        glVista,         SLOT(setPintaFrus(bool)));
+    connect(cmbLuz,           SIGNAL(activated(int)),       this,            SLOT(cambiaLuz(int)));
+    connect(cmbReferencia,    SIGNAL(activated(int)),       this,            SLOT(coordenadasLuz()));
+    connect(cmbRotaRobots,    SIGNAL(activated(int)),       glVista,         SLOT(setRotacionRob(int)));
+    connect(glVista,          SIGNAL(nuevoAR(double)),      dspAR,           SLOT(display(double)));
+    connect(glVista,          SIGNAL(nuevoPanX(double)),    dspPanX,         SLOT(display(double)));
+    connect(glVista,          SIGNAL(nuevoPanY(double)),    dspPanY,         SLOT(display(double)));
+    connect(glVista,          SIGNAL(nuevoZNear(double)),   dspzNear,        SLOT(display(double)));
+    connect(glVista,          SIGNAL(nuevoZFar(double)),    dspzFar,         SLOT(display(double)));
+    connect(glVista,          SIGNAL(nuevoAnguloA(int)),    dspApertura,     SLOT(display(int)));
+    connect(glVista,          SIGNAL(nuevoAnguloX(int)),    sldAnguloX,      SLOT(setValue(int)));
+    connect(glVista,          SIGNAL(nuevoAnguloY(int)),    sldAnguloY,      SLOT(setValue(int)));
+    connect(glVista,          SIGNAL(nuevoAnguloZ(int)),    sldAnguloZ,      SLOT(setValue(int)));
+    connect(glVista,          SIGNAL(nuevoAnguloA(int)),    sldApertura,     SLOT(setValue(int)));
+    connect(glVista,          SIGNAL(nuevaDist(int)),       sldDistancia,    SLOT(setValue(int)));
+    connect(glVista,          SIGNAL(nuevaSel(int)),        dspSeleccionado, SLOT(display(int)));
+    connect(glVista,          SIGNAL(nuevoRadio(double)),   dspRadio,        SLOT(display(double)));
+    connect(glVista,          SIGNAL(nuevoRadioXZ(double)), dspRadioXZ,      SLOT(display(double)));
+    connect(glVista,          SIGNAL(nuevoRadio(double)),   this,            SLOT(actualizaRadio(double)));
+    connect(glVista,          SIGNAL(alturas(int,int)),     this,            SLOT(actualizaAlturas(int,int)));
+    connect(sldAltura,        SIGNAL(sliderMoved(int)),     glVista,         SLOT(setAltura(int)));
+    connect(sldAltura,        SIGNAL(valueChanged(int)),    dspAltura,       SLOT(displayFloat(int)));
+    connect(sldAnguloX,       SIGNAL(valueChanged(int)),    dspAnguloX,      SLOT(display(int)));
+    connect(sldAnguloX,       SIGNAL(sliderMoved(int)),     glVista,         SLOT(setAnguloX(int)));
+    connect(sldAnguloY,       SIGNAL(valueChanged(int)),    dspAnguloY,      SLOT(display(int)));
+    connect(sldAnguloY,       SIGNAL(sliderMoved(int)),     glVista,         SLOT(setAnguloY(int)));
+    connect(sldAnguloZ,       SIGNAL(valueChanged(int)),    dspAnguloZ,      SLOT(display(int)));
+    connect(sldAnguloZ,       SIGNAL(sliderMoved(int)),     glVista,         SLOT(setAnguloZ(int)));
+    connect(sldDistancia,     SIGNAL(valueChanged(int)),    dspDistancia,    SLOT(displayFloat(int)));
+    connect(sldDistancia,     SIGNAL(sliderMoved(int)),     glVista,         SLOT(setDistancia(int)));
+    connect(sldApertura,      SIGNAL(sliderMoved(int)),     glVista,         SLOT(setApertura(int)));
+    connect(sldTransparencia, SIGNAL(valueChanged(int)),    glVista,         SLOT(setTrFrust(int)));
+    connect(sldZFarPrimera,   SIGNAL(valueChanged(int)),    glVista,         SLOT(setZFarCamPri(int)));
+    connect(spbFPS,           SIGNAL(valueChanged(int)),    glVista,         SLOT(setFPS(int)));
+    connect(spbNumRobots,     SIGNAL(valueChanged(int)),    glVista,         SLOT(setNumRobots(int)));
+    connect(spbVangular,      SIGNAL(valueChanged(int)),    glVista,         SLOT(setVAngular(int)));
+    connect(spbVlineal,       SIGNAL(valueChanged(int)),    glVista,         SLOT(setVLineal(int)));
+    connect(txtlCoordX,       SIGNAL(returnPressed()),      this,            SLOT(coordenadasLuz()));
+    connect(txtlCoordY,       SIGNAL(returnPressed()),      this,            SLOT(coordenadasLuz()));
+    connect(txtlCoordZ,       SIGNAL(returnPressed()),      this,            SLOT(coordenadasLuz()));
 
     // Configuramos la ventana de selección de modelos
     seleccionModelo = new QFileDialog(this, Qt::Dialog);
@@ -78,10 +88,10 @@ Ventana::Ventana () : QWidget(0)
 
     // Estos valores son 'hardcoded', así que cuidado al cambiarlos; consultar
     // glfuncs.cpp
-    btnFrustum->setRGB(0, 0, 200);
-    btnSeleccionado->setRGB(240, 240, 0);
-    btnVisibles->setRGB(0, 240, 0);
-    btnColorFondo->setRGB(102, 102, 102);
+    btnFrustum     ->setRGB(  0,   0, 200);
+    btnSeleccionado->setRGB(240, 240,   0);
+    btnVisibles    ->setRGB(  0, 240,   0);
+    btnColorFondo  ->setRGB(102, 102, 102);
     cambiaLuz(0);
 }
 
@@ -109,8 +119,8 @@ void Ventana::cargaEscenario ()
             // Imprime error
             QFileInfo fi(seleccionModelo->selectedFiles()[0]);
             QMessageBox::critical(this, "Error",
-                    "No se ha podido abrir el fichero " + fi.fileName(),
-                    QMessageBox::Ok, QMessageBox::NoButton);
+                           "No se ha podido abrir el fichero " + fi.fileName(),
+                                        QMessageBox::Ok, QMessageBox::NoButton);
         }
     }
 }
@@ -127,8 +137,8 @@ void Ventana::cargaRobot ()
             // Error
             QFileInfo fi(seleccionModelo->selectedFiles()[0]);
             QMessageBox::critical(this, "Error",
-                    "No se ha podido abrir el fichero " + fi.fileName(),
-                    QMessageBox::Ok, QMessageBox::NoButton);
+                           "No se ha podido abrir el fichero " + fi.fileName(),
+                                        QMessageBox::Ok, QMessageBox::NoButton);
         }
     }
 }
@@ -252,13 +262,13 @@ void Ventana::colorFondo ()
 
 //
 // cambiaLuz - Cambia la luz seleccionada y actualiza la parte de luz en la
-//             interfaz. Uff, qué palo.
+//             interfaz.  Uff, qué palo.
 //
 void Ventana::cambiaLuz (int luz)
 {
-    int   rgb[3];
+    int    rgb[3];
     float *pos;
-    bool enable = glVista->luzActivada(luz);
+    bool   enable = glVista->luzActivada(luz);
 
     // Replicamos el código de la función "cambioEstadoLuz()" porque aquí
     // necesitamos modificar el estado de "chkLActiva" sin que se emita ninguna
@@ -310,3 +320,4 @@ void Ventana::cambiaEstadoLuz (bool estado)
     // Actualizamos la posició por si acaso
     coordenadasLuz();
 }
+

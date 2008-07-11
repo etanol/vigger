@@ -2,20 +2,21 @@
 // vpushbutton.h - Extensión de la clase QPushButton para mostrar el color
 //                 seleccionado.
 //
+//  Esta clase es muy pequeña y, por tanto, no requiere separar la
+//  implementación de la definición.
+//
 #ifndef _VPUSHBUTTON_H_
 #define _VPUSHBUTTON_H_
 
 #include <QPushButton>
 
-
-class VPushButton : public QPushButton {
-
+class VPushButton : public QPushButton
+{
     Q_OBJECT
 
 public:
 
-    VPushButton (QWidget *parent)
-            : QPushButton(parent)
+    VPushButton (QWidget *parent) : QPushButton(parent)
     {
         r = 0; g = 0; b = 0;
         updateColor();
@@ -47,4 +48,4 @@ private:
 
 };
 
-#endif
+#endif // _VPUSHBUTTON_H_

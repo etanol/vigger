@@ -1,5 +1,7 @@
 //
-// modelo.cpp
+// modelo.cpp - Implementación de la carga de modelos 3DS.
+//
+// El trabajo sucio lo hace la lib3ds.
 //
 #include <limits>
 #include <cmath>
@@ -18,17 +20,20 @@ const float Modelo::L_AMBIENTE_DEF[4]  = { 0.1, 0.0, 0.2, 1.0 };
 const float Modelo::L_DIFFUSO_DEF[4]  = { 0.2, 0.0, 0.4, 1.0 };
 const float Modelo::L_ESPECULAR_DEF[4] = { 0.0, 0.0, 0.0, 1.0 };
 
+
 // Constructor
-Modelo::Modelo () :
-    fichero(0), radio_esfera(0.0), radio_esfera0(0.0),
-    radio_xz(0.0), radio_xz0(0.0), x_max(0.0), x_max0(0.0),
-    y_max(0.0), y_max0(0.0), z_max(0.0), z_max0(0.0),
-    hacer_escala(false), hacer_rotacion(false),
-    factor_escala(1.0), angulo_rotacion(0) {}
+Modelo::Modelo () : radio_esfera(0.0),     radio_xz(0.0),
+                    radio_esfera0(0.0),    radio_xz0(0.0),
+                    x_max(0.0),            y_max(0.0),         z_max(0.0),
+                    x_max0(0.0),           y_max0(0.0),        z_max0(0.0),
+                    hacer_escala(false),   factor_escala(1.0),
+                    hacer_rotacion(false), angulo_rotacion(0),
+                    fichero(0)
+{ }
 
 
 //
-// carga - Carga un nuevo modelo desde un fichero. Si algo va mal devuelve
+// carga - Carga un nuevo modelo desde un fichero.  Si algo va mal devuelve
 //         falso, sino devuelve verdadero.
 //
 bool Modelo::carga (const char *nombre)
@@ -111,9 +116,9 @@ void Modelo::computaEsferaEnvoltorio ()
         mesh = mesh->next;
     }
 
-    // Ya está todo en su sitio. Sólo hace falta memorizar los límites positivos
-    // porque ya tenemos el modelo centrado en el origen de coordenadas.
-    // Entonces:
+    // Ya está todo en su sitio.  Sólo hace falta memorizar los límites
+    // positivos porque ya tenemos el modelo centrado en el origen de
+    // coordenadas.  Entonces:
     //     x_min = -x_max
     //     y_min = -y_max
     //     z_min = -z_max
@@ -183,8 +188,8 @@ void Modelo::redimensiona (double nuevo_radio)
 
 
 //
-// pinta - Pinta el modelo entero, a saco. Si "con_color" es verdadero se
-//         utilizarán los colores del modelo, si los hay. Si "con_normales" es
+// pinta - Pinta el modelo entero, a saco.  Si "con_color" es verdadero se
+//         utilizarán los colores del modelo, si los hay.  Si "con_normales" es
 //         verdadero se utilizarán las normales del modelo.
 //
 void Modelo::pinta (bool con_color, bool con_normales)
@@ -206,17 +211,17 @@ void Modelo::pinta (bool con_color, bool con_normales)
             if (con_color) {
                 Lib3dsMaterial *m = lib3ds_file_material_by_name(fichero, f->material);
                 if (m) {
-                    glMaterialfv(GL_FRONT_AND_BACK, GL_AMBIENT, m->ambient);
-                    glMaterialfv(GL_FRONT_AND_BACK, GL_DIFFUSE, m->diffuse);
-                    glMaterialfv(GL_FRONT_AND_BACK, GL_SPECULAR, m->specular);
-                    glMaterialf(GL_FRONT_AND_BACK, GL_SHININESS, m->shininess);
+                    glMaterialfv(GL_FRONT_AND_BACK, GL_AMBIENT,   m->ambient);
+                    glMaterialfv(GL_FRONT_AND_BACK, GL_DIFFUSE,   m->diffuse);
+                    glMaterialfv(GL_FRONT_AND_BACK, GL_SPECULAR,  m->specular);
+                    glMaterialf (GL_FRONT_AND_BACK, GL_SHININESS, m->shininess);
                 } else {
                     // No hay color para esta cara; mala suerte, ponemos los
                     // colores por defecto
-                    glMaterialfv(GL_FRONT_AND_BACK, GL_AMBIENT,  L_AMBIENTE_DEF);
-                    glMaterialfv(GL_FRONT_AND_BACK, GL_DIFFUSE,  L_DIFFUSO_DEF);
-                    glMaterialfv(GL_FRONT_AND_BACK, GL_SPECULAR, L_ESPECULAR_DEF);
-                    glMaterialf(GL_FRONT_AND_BACK, GL_SHININESS, L_BRILLO_DEF);
+                    glMaterialfv(GL_FRONT_AND_BACK, GL_AMBIENT,   L_AMBIENTE_DEF);
+                    glMaterialfv(GL_FRONT_AND_BACK, GL_DIFFUSE,   L_DIFFUSO_DEF);
+                    glMaterialfv(GL_FRONT_AND_BACK, GL_SPECULAR,  L_ESPECULAR_DEF);
+                    glMaterialf (GL_FRONT_AND_BACK, GL_SHININESS, L_BRILLO_DEF);
                 }
             }
 

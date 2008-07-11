@@ -38,9 +38,9 @@ void GLWidget::reseteaCam ()
 //
 // .: setCamPrimera [public slot] :.
 //
-// Activa o desactiva la cámara en primera persona. Como la matriz de proyección
-// no se actualiza en cada frame lo tenemos que hacer ahora. Si no hay ningún
-// robot seleccionado ignoramos la solicitud del usuario.
+// Activa o desactiva la cámara en primera persona.  Como la matriz de
+// proyección no se actualiza en cada frame lo tenemos que hacer ahora.  Si no
+// hay ningún robot seleccionado ignoramos la solicitud del usuario.
 //
 void GLWidget::setCamPrimera (bool si)
 {
@@ -56,10 +56,10 @@ void GLWidget::setCamPrimera (bool si)
 //
 // .: setZFarCamPri [public slot] :.
 //
-// Cambiamos el plano de recorte Z-Far de los robots. Así cuando visualizamos el
-// frustum se verá más pequeño y cuando tengamos la cámara en primera persona el
-// recorte se notará más. Si estamos en modo primera persona se debe actualizar
-// la matriz de proyección.
+// Cambiamos el plano de recorte Z-Far de los robots.  Así cuando visualizamos
+// el frustum se verá más pequeño y cuando tengamos la cámara en primera persona
+// el recorte se notará más.  Si estamos en modo primera persona se debe
+// actualizar la matriz de proyección.
 //
 void GLWidget::setZFarCamPri (int z)
 {
@@ -77,7 +77,7 @@ void GLWidget::setZFarCamPri (int z)
 //
 // .: setDistancia [public slot] :.
 //
-// Ajustamos la diestancia del observador a la escena. Este slot se sencillo
+// Ajustamos la diestancia del observador a la escena.  Este slot se sencillo
 // dado que todo el trabajo importante lo hace "ajustaRecorteZ()".
 //
 void GLWidget::setDistancia (double dist)
@@ -93,17 +93,17 @@ void GLWidget::setDistancia (double dist)
 // .: situaCamara [private] :.
 //
 // Coloca la cámara en su lugar, según el estado actual y el tipo de cámara
-// seleccionada. Con el parámetro "forzar_prim" a verdadero obligamos a colocar
+// seleccionada.  Con el parámetro "forzar_prim" a verdadero obligamos a colocar
 // la cámara en primera persona dependiendo del robot seleccionado, e ignorando
-// el estado de "cam_primera". Aquí se asume que "sel_robot" > -1
+// el estado de "cam_primera".  Aquí se asume que "sel_robot" > -1
 //
 void GLWidget::situaCamara (bool forzar_prim)
 {
     if (cam_primera || forzar_prim) {
         glRotatef(static_cast<GLfloat>(ani_probot[sel_robot].angulo + 180),
-                0.0, -1.0, 0.0);
+                                                                0.0, -1.0, 0.0);
         glTranslated(-ani_probot[sel_robot].x, -ani_arobots,
-                -ani_probot[sel_robot].z);
+                                                      -ani_probot[sel_robot].z);
     } else {
         glTranslated(cam_panx, cam_pany, -cam_distancia);
         glRotatef(static_cast<GLfloat>(cam_anguloz), 0.0, 0.0, -1.0);
@@ -117,9 +117,9 @@ void GLWidget::situaCamara (bool forzar_prim)
 // .: setPerspectiva [private] :.
 //
 // Igual que en "situaCamara()", aquí también debemos distingir entre diferentes
-// tipos de cámaras. El parámetro "forzar_prim" tiene el mismo significado. Aquí
-// no es necesario que haya algún robot seleccionado; aunque no es recomendable
-// dejar de comrobarlo antes.
+// tipos de cámaras.  El parámetro "forzar_prim" tiene el mismo significado.
+// Aquí no es necesario que haya algún robot seleccionado; aunque no es
+// recomendable dejar de comrobarlo antes.
 //
 void GLWidget::setPerspectiva (bool forzar_prim)
 {
@@ -153,8 +153,8 @@ void GLWidget::ajustaApertura ()
 //
 // Para poder ver toda la escena, al menos en el estado inicial de la cámara, se
 // debe rectificar el ángulo de apertura vertical cuando la relación de aspecto
-// es inferior a 1. Cuando esto sucede hay que aumentar este ángulo sin alterar
-// la relación de aspecto. En la implementación es difícil ver la fórmula:
+// es inferior a 1.  Cuando esto sucede hay que aumentar este ángulo sin alterar
+// la relación de aspecto.  En la implementación es difícil ver la fórmula:
 //
 //              / tan O  \
 //     W = atan | ------ |
@@ -166,9 +166,8 @@ void GLWidget::ajustaApertura ()
 void GLWidget::actualizaAspecto ()
 {
     if (cam_aspecto < 1.0)
-        cam_anguloa = 2.0 * grados( atan( tan(
-                radianes( static_cast<double>(cam_anguloa0) / 2.0 ) )
-                / cam_aspecto ) );
+        cam_anguloa = 2.0 * grados(atan(tan(radianes(
+                      static_cast<double>(cam_anguloa0) / 2.0)) / cam_aspecto));
     else
         cam_anguloa = static_cast<double>(cam_anguloa0);
 
@@ -185,8 +184,8 @@ void GLWidget::actualizaAspecto ()
 //
 // Para aprovechar mejor los bits del Z-buffer calculamos los planos de recorte
 // frontal y posterior lo más ajustados posible a la escenak sin perder partes
-// visibles. Por suerte, sabemos que el escenario tiene una dimensión limitada y
-// que ningún robot saldrá de este volumen.
+// visibles.  Por suerte, sabemos que el escenario tiene una dimensión limitada
+// y que ningún robot saldrá de este volumen.
 //
 void GLWidget::ajustaRecorteZ ()
 {
@@ -220,8 +219,8 @@ void GLWidget::rectificaRotaciones ()
     cam_angulox = cam_angulox % 360;
     cam_anguloy = cam_anguloy % 360;
 
-    if (cam_angulox < 0) cam_angulox += 360;
-    if (cam_anguloy < 0) cam_anguloy += 360;
+    if (cam_angulox < 0)  cam_angulox += 360;
+    if (cam_anguloy < 0)  cam_anguloy += 360;
 
     emit nuevoAnguloX(cam_angulox);
     emit nuevoAnguloY(cam_anguloy);
