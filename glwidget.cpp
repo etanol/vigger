@@ -1,8 +1,7 @@
 //
 // glwidget.cpp - Constructor y otros métodos no clasificados.
 //
-#include <qdatetime.h>
-#include <cstdlib>
+#include <QTime>
 #include "glwidget.h"
 
 
@@ -11,8 +10,7 @@
 //   CONSTRUCTOR   //
 //                 //
 /////////////////////
-GLWidget::GLWidget (QWidget *parent, const char *name)
-        : QGLWidget(parent, name)
+GLWidget::GLWidget (QWidget *parent) : QGLWidget(parent)
 {
     // Inicializamos la raíz aleatoria
     QTime medianoche(0, 0, 0);
@@ -41,9 +39,9 @@ GLWidget::GLWidget (QWidget *parent, const char *name)
 //
 // .: cargaEscenario [public] :.
 //
-bool GLWidget::cargaEscenario (const char *fichero)
+bool GLWidget::cargaEscenario (QString &fichero)
 {
-    if (!escenario.carga(fichero))
+    if (!escenario.carga(fichero.toAscii().data()))
         return false;
 
     cam_avance = escenario.radio() * 0.01;
@@ -76,9 +74,9 @@ bool GLWidget::cargaEscenario (const char *fichero)
 //
 // .: cargaRobots [public] :.
 //
-bool GLWidget::cargaRobots (const char *fichero)
+bool GLWidget::cargaRobots (QString &fichero)
 {
-    if (!robot.carga(fichero))
+    if (!robot.carga(fichero.toAscii().data()))
         return false;
 
     robot.redimensiona(0.1 * escenario.radio());

@@ -1,127 +1,122 @@
-<!DOCTYPE UI><UI version="3.3" stdsetdef="1">
-<class>Ayuda</class>
-<widget class="QDialog">
-    <property name="name">
-        <cstring>Ayuda</cstring>
-    </property>
-    <property name="geometry">
-        <rect>
-            <x>0</x>
-            <y>0</y>
-            <width>553</width>
-            <height>343</height>
-        </rect>
-    </property>
-    <property name="caption">
-        <string>Ayuda</string>
-    </property>
-    <property name="iconText">
-        <string></string>
-    </property>
-    <vbox>
-        <property name="name">
-            <cstring>unnamed</cstring>
+<ui version="4.0" >
+ <class>Ayuda</class>
+ <widget class="QDialog" name="Ayuda" >
+  <property name="geometry" >
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>400</width>
+    <height>300</height>
+   </rect>
+  </property>
+  <property name="windowTitle" >
+   <string>Ayuda</string>
+  </property>
+  <layout class="QVBoxLayout" >
+   <property name="margin" >
+    <number>9</number>
+   </property>
+   <property name="spacing" >
+    <number>6</number>
+   </property>
+   <item>
+    <widget class="QFrame" name="frame" >
+     <property name="frameShape" >
+      <enum>QFrame::StyledPanel</enum>
+     </property>
+     <property name="frameShadow" >
+      <enum>QFrame::Raised</enum>
+     </property>
+     <layout class="QHBoxLayout" >
+      <property name="margin" >
+       <number>9</number>
+      </property>
+      <property name="spacing" >
+       <number>6</number>
+      </property>
+      <item>
+       <widget class="QTextEdit" name="textEdit" >
+        <property name="html" >
+         <string>&lt;html>&lt;head>&lt;meta name="qrichtext" content="1" />&lt;style type="text/css">
+p, li { white-space: pre-wrap; }
+&lt;/style>&lt;/head>&lt;body style=" font-family:'Sans Serif'; font-size:9pt; font-weight:400; font-style:normal; text-decoration:none;">
+&lt;p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;">&lt;span style=" font-size:12pt; font-weight:600; text-decoration: underline;">Funcionalidades de la aplicación&lt;/span>&lt;/p>
+&lt;p style="-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; font-weight:600; text-decoration: underline;">&lt;/p>
+&lt;p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;">&lt;span style=" font-weight:600;">Ctrl + Rueda ratón:&lt;/span> Zoom óptico. Incrementa o decrementa el ángulo de apertura vertical de la cámara en 3ª persona.&lt;/p>
+&lt;p style="-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;">&lt;/p>
+&lt;p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;">&lt;span style=" font-weight:600;">Teclas a / z:&lt;/span> Incrementa / Decrementa el ángulo de aperutra de la cámara. Para cuando no disponga de ratón con rueda.&lt;/p>
+&lt;p style="-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;">&lt;/p>
+&lt;p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;">&lt;span style=" font-weight:600;">Rueda ratón:&lt;/span> Zoom de proximidad. Acerca o aleja la cámara de la escena.&lt;/p>
+&lt;p style="-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;">&lt;/p>
+&lt;p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;">&lt;span style=" font-weight:600;">Tecles + / -:&lt;/span> Aleja / Acerca la distancia de la cámara a la escena. Para cuando no disponga de un ratón con rueda.&lt;/p>
+&lt;p style="-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;">&lt;/p>
+&lt;p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;">&lt;span style=" font-weight:600;">Botón izquierdo + movimiento:&lt;/span> Rota la escena sobre los ejes x e y.&lt;/p>
+&lt;p style="-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;">&lt;/p>
+&lt;p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;">&lt;span style=" font-weight:600;">Botón derecho + movimiento:&lt;/span> Desplaza la escena en el plano de la pantalla.&lt;/p>
+&lt;p style="-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;">&lt;/p>
+&lt;p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;">&lt;span style=" font-weight:600;">Tecla u:&lt;/span> Gira la escena sobre el eje z en sentido antihorario.&lt;/p>
+&lt;p style="-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;">&lt;/p>
+&lt;p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;">&lt;span style=" font-weight:600;">Tecla o:&lt;/span> Gira la escena sobre el eje z en sentido horario.&lt;/p>
+&lt;p style="-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;">&lt;/p>
+&lt;p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;">&lt;span style=" font-weight:600;">Tecla r:&lt;/span> Resetea la cámara dejándola en el estado inicial.&lt;/p>
+&lt;p style="-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;">&lt;/p>
+&lt;p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;">&lt;span style=" font-weight:600;">Shift + Click de botón izquierdo:&lt;/span> Selecciona o deselecciona el robot al que se le haya hecho click.&lt;/p>
+&lt;p style="-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;">&lt;/p>&lt;/body>&lt;/html></string>
         </property>
-        <widget class="QFrame">
-            <property name="name">
-                <cstring>frame7</cstring>
-            </property>
-            <property name="frameShape">
-                <enum>StyledPanel</enum>
-            </property>
-            <property name="frameShadow">
-                <enum>Raised</enum>
-            </property>
-            <vbox>
-                <property name="name">
-                    <cstring>unnamed</cstring>
-                </property>
-                <widget class="QTextEdit">
-                    <property name="name">
-                        <cstring>txtAyuda</cstring>
-                    </property>
-                    <property name="minimumSize">
-                        <size>
-                            <width>250</width>
-                            <height>250</height>
-                        </size>
-                    </property>
-                    <property name="text">
-                        <string>&lt;html&gt;&lt;head&gt;&lt;meta name="qrichtext" content="1" /&gt;&lt;/head&gt;&lt;body style="font-size:9pt;font-family:Sans Serif"&gt;
-&lt;p align="center" style="margin-top:16px"&gt;&lt;span style="font-family:Courier New;font-size:13pt;font-weight:600;text-decoration:underline"&gt;Funcionalidades de la aplicación:&lt;/span&gt;&lt;/p&gt;
-&lt;p&gt;&lt;/p&gt;
-&lt;p style="margin-left:40px;margin-right:40px"&gt;
-&lt;span style="font-weight:600"&gt;Ctrl + Rueda ratón: &lt;/span&gt;Zoom óptico. Incrementa o decrementa el ángulo de apertura vertical de la cámara en 3ª persona.&lt;br /&gt;&lt;br /&gt;
-&lt;span style="font-weight:600"&gt;Teclas a / z: &lt;/span&gt;Incrementa / Decrementa el ángulo de aperutra de la cámara. Para cuando no disponga de ratón con rueda.&lt;br /&gt;&lt;br /&gt;
-&lt;span style="font-weight:600"&gt;Rueda ratón: &lt;/span&gt;Zoom de proximidad. Acerca o aleja la cámara de la escena.&lt;br /&gt;&lt;br /&gt;
-&lt;span style="font-weight:600"&gt;Tecles + / -: &lt;/span&gt;Aleja / Acerca la distancia de la cámara a la escena. Para cuando no disponga de un ratón con rueda.&lt;br /&gt;&lt;br /&gt;
-&lt;span style="font-weight:600"&gt;Botón izquierdo + movimiento: &lt;/span&gt;Rota la escena sobre los ejes x e y.&lt;br /&gt;&lt;br /&gt;
-&lt;span style="font-weight:600"&gt;Botón derecho + movimiento: &lt;/span&gt;Desplaza la escena en el plano de la pantalla.&lt;br /&gt;&lt;br /&gt;
-&lt;span style="font-weight:600"&gt;Tecla u: &lt;/span&gt;Gira la escena sobre el eje z en sentido antihorario.&lt;br /&gt;&lt;br /&gt;
-&lt;span style="font-weight:600"&gt;Tecla o: &lt;/span&gt;Gira la escena sobre el eje z en sentido horario.&lt;br /&gt;&lt;br /&gt;
-&lt;span style="font-weight:600"&gt;Tecla r: &lt;/span&gt;Resetea la cámara dejándola en el estado inicial.&lt;br /&gt;&lt;br /&gt;
-&lt;span style="font-weight:600"&gt;Shift + Click de botón izquierdo: &lt;/span&gt;Selecciona o deselecciona el robot al que se le haya hecho click.&lt;br /&gt;&lt;br /&gt;
-&lt;/p&gt;
-&lt;/body&gt;&lt;/html&gt;
-</string>
-                    </property>
-                    <property name="wordWrap">
-                        <enum>WidgetWidth</enum>
-                    </property>
-                    <property name="readOnly">
-                        <bool>true</bool>
-                    </property>
-                </widget>
-            </vbox>
-        </widget>
-        <widget class="QLayoutWidget">
-            <property name="name">
-                <cstring>layout1</cstring>
-            </property>
-            <hbox>
-                <property name="name">
-                    <cstring>unnamed</cstring>
-                </property>
-                <spacer>
-                    <property name="name">
-                        <cstring>spacer1</cstring>
-                    </property>
-                    <property name="orientation">
-                        <enum>Horizontal</enum>
-                    </property>
-                    <property name="sizeType">
-                        <enum>Expanding</enum>
-                    </property>
-                    <property name="sizeHint">
-                        <size>
-                            <width>231</width>
-                            <height>41</height>
-                        </size>
-                    </property>
-                </spacer>
-                <widget class="QPushButton">
-                    <property name="name">
-                        <cstring>btnCerrar</cstring>
-                    </property>
-                    <property name="text">
-                        <string>&amp;Cerrar</string>
-                    </property>
-                    <property name="accel">
-                        <string>Alt+C</string>
-                    </property>
-                </widget>
-            </hbox>
-        </widget>
-    </vbox>
-</widget>
-<connections>
-    <connection>
-        <sender>btnCerrar</sender>
-        <signal>clicked()</signal>
-        <receiver>Ayuda</receiver>
-        <slot>close()</slot>
-    </connection>
-</connections>
-<pixmapinproject/>
-<layoutdefaults spacing="6" margin="11"/>
-</UI>
+       </widget>
+      </item>
+     </layout>
+    </widget>
+   </item>
+   <item>
+    <layout class="QHBoxLayout" >
+     <property name="margin" >
+      <number>0</number>
+     </property>
+     <property name="spacing" >
+      <number>6</number>
+     </property>
+     <item>
+      <spacer>
+       <property name="orientation" >
+        <enum>Qt::Horizontal</enum>
+       </property>
+       <property name="sizeHint" >
+        <size>
+         <width>40</width>
+         <height>20</height>
+        </size>
+       </property>
+      </spacer>
+     </item>
+     <item>
+      <widget class="QPushButton" name="btnCerrar" >
+       <property name="text" >
+        <string>&amp;Cerrar</string>
+       </property>
+      </widget>
+     </item>
+    </layout>
+   </item>
+  </layout>
+ </widget>
+ <resources/>
+ <connections>
+  <connection>
+   <sender>btnCerrar</sender>
+   <signal>clicked()</signal>
+   <receiver>Ayuda</receiver>
+   <slot>accept()</slot>
+   <hints>
+    <hint type="sourcelabel" >
+     <x>338</x>
+     <y>277</y>
+    </hint>
+    <hint type="destinationlabel" >
+     <x>257</x>
+     <y>274</y>
+    </hint>
+   </hints>
+  </connection>
+ </connections>
+</ui>

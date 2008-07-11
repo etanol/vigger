@@ -1,1624 +1,1102 @@
-<!DOCTYPE UI><UI version="3.3" stdsetdef="1">
-<class>Ventana</class>
-<widget class="QMainWindow">
-    <property name="name">
-        <cstring>Ventana</cstring>
-    </property>
-    <property name="geometry">
-        <rect>
-            <x>0</x>
-            <y>0</y>
-            <width>979</width>
-            <height>589</height>
-        </rect>
-    </property>
-    <property name="caption">
-        <string>VIG Cristal, escribe normal</string>
-    </property>
-    <hbox>
-        <property name="name">
-            <cstring>unnamed</cstring>
-        </property>
-        <widget class="GLWidget">
-            <property name="name">
-                <cstring>glVista</cstring>
+<ui version="4.0" >
+ <class>Ventana</class>
+ <widget class="QWidget" name="Ventana" >
+  <property name="geometry" >
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>907</width>
+    <height>618</height>
+   </rect>
+  </property>
+  <property name="windowTitle" >
+   <string>VIG cristal, escribe normal</string>
+  </property>
+  <property name="windowIcon" >
+   <iconset/>
+  </property>
+  <layout class="QHBoxLayout" >
+   <property name="margin" >
+    <number>9</number>
+   </property>
+   <property name="spacing" >
+    <number>6</number>
+   </property>
+   <item>
+    <widget class="GLWidget" native="1" name="glVista" >
+     <property name="sizePolicy" >
+      <sizepolicy>
+       <hsizetype>7</hsizetype>
+       <vsizetype>7</vsizetype>
+       <horstretch>232</horstretch>
+       <verstretch>0</verstretch>
+      </sizepolicy>
+     </property>
+     <property name="minimumSize" >
+      <size>
+       <width>500</width>
+       <height>0</height>
+      </size>
+     </property>
+     <property name="focusPolicy" >
+      <enum>Qt::StrongFocus</enum>
+     </property>
+    </widget>
+   </item>
+   <item>
+    <layout class="QVBoxLayout" >
+     <property name="margin" >
+      <number>0</number>
+     </property>
+     <property name="spacing" >
+      <number>6</number>
+     </property>
+     <item>
+      <widget class="QTabWidget" name="tabOpciones" >
+       <property name="currentIndex" >
+        <number>0</number>
+       </property>
+       <widget class="QWidget" name="tbModelo" >
+        <attribute name="title" >
+         <string>Modelo</string>
+        </attribute>
+        <layout class="QVBoxLayout" >
+         <property name="margin" >
+          <number>9</number>
+         </property>
+         <property name="spacing" >
+          <number>6</number>
+         </property>
+         <item>
+          <widget class="QGroupBox" name="grpOpsModelo" >
+           <property name="title" >
+            <string>Opciones</string>
+           </property>
+           <layout class="QGridLayout" >
+            <property name="margin" >
+             <number>9</number>
             </property>
-            <property name="sizePolicy">
-                <sizepolicy>
-                    <hsizetype>7</hsizetype>
-                    <vsizetype>7</vsizetype>
-                    <horstretch>232</horstretch>
-                    <verstretch>0</verstretch>
-                </sizepolicy>
+            <property name="spacing" >
+             <number>6</number>
             </property>
-            <property name="minimumSize">
-                <size>
-                    <width>500</width>
-                    <height>0</height>
-                </size>
+            <item row="5" column="0" >
+             <widget class="QLabel" name="lblAltura" >
+              <property name="text" >
+               <string>Altura:</string>
+              </property>
+              <property name="buddy" >
+               <cstring>sldAltura</cstring>
+              </property>
+             </widget>
+            </item>
+            <item row="4" column="0" >
+             <widget class="QLabel" name="lblFPS" >
+              <property name="text" >
+               <string>FPS:</string>
+              </property>
+              <property name="buddy" >
+               <cstring>spbFPS</cstring>
+              </property>
+             </widget>
+            </item>
+            <item row="3" column="0" >
+             <widget class="QLabel" name="lblVlineal" >
+              <property name="text" >
+               <string>Vel. lineal:</string>
+              </property>
+              <property name="buddy" >
+               <cstring>spbVlineal</cstring>
+              </property>
+             </widget>
+            </item>
+            <item row="2" column="0" >
+             <widget class="QLabel" name="lblVangular" >
+              <property name="text" >
+               <string>Vel. angular:</string>
+              </property>
+              <property name="buddy" >
+               <cstring>spbVangular</cstring>
+              </property>
+             </widget>
+            </item>
+            <item row="1" column="0" >
+             <widget class="QLabel" name="lblNumRobots" >
+              <property name="text" >
+               <string>Núm. robots:</string>
+              </property>
+              <property name="buddy" >
+               <cstring>spbNumRobots</cstring>
+              </property>
+             </widget>
+            </item>
+            <item row="0" column="0" >
+             <widget class="QLabel" name="lblPintaRobots" >
+              <property name="text" >
+               <string>Pinta robots:</string>
+              </property>
+              <property name="buddy" >
+               <cstring>cmbRotaRobots</cstring>
+              </property>
+             </widget>
+            </item>
+            <item row="5" column="1" >
+             <widget class="QSlider" name="sldAltura" >
+              <property name="orientation" >
+               <enum>Qt::Horizontal</enum>
+              </property>
+             </widget>
+            </item>
+            <item row="1" column="1" >
+             <widget class="QSpinBox" name="spbNumRobots" >
+              <property name="maximum" >
+               <number>20</number>
+              </property>
+             </widget>
+            </item>
+            <item row="0" column="1" >
+             <widget class="QComboBox" name="cmbRotaRobots" >
+              <item>
+               <property name="text" >
+                <string>Sin rotar</string>
+               </property>
+              </item>
+              <item>
+               <property name="text" >
+                <string>Rotar 90°</string>
+               </property>
+              </item>
+              <item>
+               <property name="text" >
+                <string>Rotar 180°</string>
+               </property>
+              </item>
+              <item>
+               <property name="text" >
+                <string>Rotar 270°</string>
+               </property>
+              </item>
+             </widget>
+            </item>
+            <item row="4" column="1" >
+             <widget class="QSpinBox" name="spbFPS" >
+              <property name="maximum" >
+               <number>100</number>
+              </property>
+              <property name="minimum" >
+               <number>10</number>
+              </property>
+             </widget>
+            </item>
+            <item row="3" column="1" >
+             <widget class="QSpinBox" name="spbVlineal" >
+              <property name="maximum" >
+               <number>10</number>
+              </property>
+              <property name="minimum" >
+               <number>1</number>
+              </property>
+              <property name="value" >
+               <number>1</number>
+              </property>
+             </widget>
+            </item>
+            <item row="2" column="1" >
+             <widget class="QSpinBox" name="spbVangular" >
+              <property name="maximum" >
+               <number>40</number>
+              </property>
+              <property name="minimum" >
+               <number>1</number>
+              </property>
+              <property name="value" >
+               <number>10</number>
+              </property>
+             </widget>
+            </item>
+           </layout>
+          </widget>
+         </item>
+         <item>
+          <widget class="QGroupBox" name="grpSeleccion" >
+           <property name="title" >
+            <string>Selección</string>
+           </property>
+           <layout class="QVBoxLayout" >
+            <property name="margin" >
+             <number>9</number>
             </property>
-            <property name="focusPolicy">
-                <enum>StrongFocus</enum>
+            <property name="spacing" >
+             <number>6</number>
             </property>
+            <item>
+             <widget class="QCheckBox" name="chkMovimiento" >
+              <property name="text" >
+               <string>En movimiento</string>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <widget class="QCheckBox" name="chkVisFrustum" >
+              <property name="text" >
+               <string>Visualizar frustum</string>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <widget class="QCheckBox" name="chkMarcVisibles" >
+              <property name="text" >
+               <string>Marcar visibles</string>
+              </property>
+             </widget>
+            </item>
+           </layout>
+          </widget>
+         </item>
+         <item>
+          <layout class="QHBoxLayout" >
+           <property name="margin" >
+            <number>0</number>
+           </property>
+           <property name="spacing" >
+            <number>6</number>
+           </property>
+           <item>
+            <widget class="QPushButton" name="btnCargaEs" >
+             <property name="text" >
+              <string>Carga escenario</string>
+             </property>
+            </widget>
+           </item>
+           <item>
+            <widget class="QPushButton" name="btnCargaRo" >
+             <property name="enabled" >
+              <bool>false</bool>
+             </property>
+             <property name="text" >
+              <string>Carga robots</string>
+             </property>
+            </widget>
+           </item>
+          </layout>
+         </item>
+         <item>
+          <spacer>
+           <property name="orientation" >
+            <enum>Qt::Vertical</enum>
+           </property>
+           <property name="sizeHint" >
+            <size>
+             <width>20</width>
+             <height>40</height>
+            </size>
+           </property>
+          </spacer>
+         </item>
+         <item>
+          <layout class="QGridLayout" >
+           <property name="margin" >
+            <number>0</number>
+           </property>
+           <property name="spacing" >
+            <number>3</number>
+           </property>
+           <item row="0" column="0" >
+            <widget class="QLabel" name="lblAltura2" >
+             <property name="text" >
+              <string>Altura:</string>
+             </property>
+            </widget>
+           </item>
+           <item row="1" column="0" >
+            <widget class="QLabel" name="lblSeleccionado" >
+             <property name="text" >
+              <string>Seleccionado:</string>
+             </property>
+            </widget>
+           </item>
+           <item row="0" column="2" >
+            <widget class="QLabel" name="lblRadio" >
+             <property name="text" >
+              <string>Radio escena:</string>
+             </property>
+            </widget>
+           </item>
+           <item row="1" column="2" >
+            <widget class="QLabel" name="lblRadioXZ" >
+             <property name="text" >
+              <string>Radio XZ:</string>
+             </property>
+            </widget>
+           </item>
+           <item row="0" column="1" >
+            <widget class="VDisplay" name="dspAltura" />
+           </item>
+           <item row="1" column="1" >
+            <widget class="VDisplay" name="dspSeleccionado" />
+           </item>
+           <item row="0" column="3" >
+            <widget class="VDisplay" name="dspRadio" />
+           </item>
+           <item row="1" column="3" >
+            <widget class="VDisplay" name="dspRadioXZ" />
+           </item>
+          </layout>
+         </item>
+        </layout>
+       </widget>
+       <widget class="QWidget" name="tbCam" >
+        <attribute name="title" >
+         <string>Cámara</string>
+        </attribute>
+        <layout class="QVBoxLayout" >
+         <property name="margin" >
+          <number>9</number>
+         </property>
+         <property name="spacing" >
+          <number>6</number>
+         </property>
+         <item>
+          <widget class="QGroupBox" name="grpRotaciones" >
+           <property name="title" >
+            <string>Rotaciones</string>
+           </property>
+           <layout class="QGridLayout" >
+            <property name="margin" >
+             <number>9</number>
+            </property>
+            <property name="spacing" >
+             <number>6</number>
+            </property>
+            <item row="2" column="0" >
+             <widget class="QLabel" name="lblEjeZ" >
+              <property name="text" >
+               <string>Eje Z:</string>
+              </property>
+              <property name="buddy" >
+               <cstring>sldAnguloZ</cstring>
+              </property>
+             </widget>
+            </item>
+            <item row="1" column="0" >
+             <widget class="QLabel" name="lblEjeY" >
+              <property name="text" >
+               <string>Eje Y:</string>
+              </property>
+              <property name="buddy" >
+               <cstring>sldAnguloY</cstring>
+              </property>
+             </widget>
+            </item>
+            <item row="0" column="0" >
+             <widget class="QLabel" name="lblEjeX" >
+              <property name="text" >
+               <string>Eje X:</string>
+              </property>
+              <property name="buddy" >
+               <cstring>sldAnguloX</cstring>
+              </property>
+             </widget>
+            </item>
+            <item row="2" column="1" >
+             <widget class="QSlider" name="sldAnguloZ" >
+              <property name="maximum" >
+               <number>359</number>
+              </property>
+              <property name="orientation" >
+               <enum>Qt::Horizontal</enum>
+              </property>
+             </widget>
+            </item>
+            <item row="1" column="1" >
+             <widget class="QSlider" name="sldAnguloY" >
+              <property name="maximum" >
+               <number>359</number>
+              </property>
+              <property name="orientation" >
+               <enum>Qt::Horizontal</enum>
+              </property>
+             </widget>
+            </item>
+            <item row="0" column="1" >
+             <widget class="QSlider" name="sldAnguloX" >
+              <property name="maximum" >
+               <number>359</number>
+              </property>
+              <property name="orientation" >
+               <enum>Qt::Horizontal</enum>
+              </property>
+             </widget>
+            </item>
+           </layout>
+          </widget>
+         </item>
+         <item>
+          <widget class="QGroupBox" name="grpZoom" >
+           <property name="title" >
+            <string>Zoom</string>
+           </property>
+           <layout class="QGridLayout" >
+            <property name="margin" >
+             <number>9</number>
+            </property>
+            <property name="spacing" >
+             <number>6</number>
+            </property>
+            <item row="1" column="1" >
+             <widget class="QSlider" name="sldApertura" >
+              <property name="minimum" >
+               <number>10</number>
+              </property>
+              <property name="maximum" >
+               <number>179</number>
+              </property>
+              <property name="orientation" >
+               <enum>Qt::Horizontal</enum>
+              </property>
+             </widget>
+            </item>
+            <item row="0" column="1" >
+             <widget class="QSlider" name="sldDistancia" >
+              <property name="orientation" >
+               <enum>Qt::Horizontal</enum>
+              </property>
+             </widget>
+            </item>
+            <item row="0" column="0" >
+             <widget class="QLabel" name="lblDistancia" >
+              <property name="text" >
+               <string>Distancia:</string>
+              </property>
+              <property name="buddy" >
+               <cstring>sldDistancia</cstring>
+              </property>
+             </widget>
+            </item>
+            <item row="1" column="0" >
+             <widget class="QLabel" name="lblApertura" >
+              <property name="text" >
+               <string>Apertura:</string>
+              </property>
+              <property name="buddy" >
+               <cstring>sldApertura</cstring>
+              </property>
+             </widget>
+            </item>
+           </layout>
+          </widget>
+         </item>
+         <item>
+          <widget class="QGroupBox" name="grpOpcionesCam" >
+           <property name="title" >
+            <string>Opciones</string>
+           </property>
+           <layout class="QGridLayout" >
+            <property name="margin" >
+             <number>9</number>
+            </property>
+            <property name="spacing" >
+             <number>6</number>
+            </property>
+            <item row="2" column="1" >
+             <widget class="QSlider" name="sldZFarPrimera" >
+              <property name="minimum" >
+               <number>10</number>
+              </property>
+              <property name="maximum" >
+               <number>100</number>
+              </property>
+              <property name="orientation" >
+               <enum>Qt::Horizontal</enum>
+              </property>
+             </widget>
+            </item>
+            <item row="2" column="0" >
+             <widget class="QLabel" name="lblZFarPrimera" >
+              <property name="text" >
+               <string>Z Far:</string>
+              </property>
+              <property name="buddy" >
+               <cstring>sldZFarPrimera</cstring>
+              </property>
+             </widget>
+            </item>
+            <item row="1" column="0" colspan="2" >
+             <widget class="QCheckBox" name="chkCamPrimera" >
+              <property name="text" >
+               <string>Primera persona</string>
+              </property>
+             </widget>
+            </item>
+            <item row="0" column="0" colspan="2" >
+             <widget class="QCheckBox" name="chkAlambre" >
+              <property name="text" >
+               <string>Modo alámbrico</string>
+              </property>
+             </widget>
+            </item>
+           </layout>
+          </widget>
+         </item>
+         <item>
+          <layout class="QHBoxLayout" >
+           <property name="margin" >
+            <number>0</number>
+           </property>
+           <property name="spacing" >
+            <number>6</number>
+           </property>
+           <item>
+            <spacer>
+             <property name="orientation" >
+              <enum>Qt::Horizontal</enum>
+             </property>
+             <property name="sizeHint" >
+              <size>
+               <width>40</width>
+               <height>20</height>
+              </size>
+             </property>
+            </spacer>
+           </item>
+           <item>
+            <widget class="QPushButton" name="btnResetCam" >
+             <property name="text" >
+              <string>&amp;Resetea</string>
+             </property>
+            </widget>
+           </item>
+          </layout>
+         </item>
+         <item>
+          <spacer>
+           <property name="orientation" >
+            <enum>Qt::Vertical</enum>
+           </property>
+           <property name="sizeHint" >
+            <size>
+             <width>20</width>
+             <height>16</height>
+            </size>
+           </property>
+          </spacer>
+         </item>
+         <item>
+          <layout class="QGridLayout" >
+           <property name="margin" >
+            <number>0</number>
+           </property>
+           <property name="spacing" >
+            <number>3</number>
+           </property>
+           <item row="4" column="2" >
+            <widget class="QLabel" name="lblDistancia2" >
+             <property name="text" >
+              <string>Distancia:</string>
+             </property>
+            </widget>
+           </item>
+           <item row="2" column="0" >
+            <widget class="QLabel" name="lblAnguloZ" >
+             <property name="text" >
+              <string>Ángulo Z:</string>
+             </property>
+            </widget>
+           </item>
+           <item row="1" column="2" >
+            <widget class="QLabel" name="lblPanY" >
+             <property name="text" >
+              <string>Pan Y:</string>
+             </property>
+            </widget>
+           </item>
+           <item row="4" column="0" >
+            <widget class="QLabel" name="lblAR" >
+             <property name="text" >
+              <string>A.R.:</string>
+             </property>
+            </widget>
+           </item>
+           <item row="3" column="0" >
+            <widget class="QLabel" name="lblApertura2" >
+             <property name="text" >
+              <string>Apertura:</string>
+             </property>
+            </widget>
+           </item>
+           <item row="0" column="0" >
+            <widget class="QLabel" name="lblAnguloX" >
+             <property name="text" >
+              <string>Ángulo X:</string>
+             </property>
+            </widget>
+           </item>
+           <item row="1" column="0" >
+            <widget class="QLabel" name="lblAnguloY" >
+             <property name="text" >
+              <string>Ángulo Y:</string>
+             </property>
+            </widget>
+           </item>
+           <item row="3" column="2" >
+            <widget class="QLabel" name="lblzFar" >
+             <property name="text" >
+              <string>Z Far:</string>
+             </property>
+            </widget>
+           </item>
+           <item row="0" column="2" >
+            <widget class="QLabel" name="lblPanX" >
+             <property name="text" >
+              <string>Pan X:</string>
+             </property>
+            </widget>
+           </item>
+           <item row="2" column="2" >
+            <widget class="QLabel" name="lblzNear" >
+             <property name="text" >
+              <string>Z Near:</string>
+             </property>
+            </widget>
+           </item>
+           <item row="4" column="3" >
+            <widget class="VDisplay" name="dspDistancia" />
+           </item>
+           <item row="1" column="1" >
+            <widget class="VDisplay" name="dspAnguloY" />
+           </item>
+           <item row="2" column="1" >
+            <widget class="VDisplay" name="dspAnguloZ" />
+           </item>
+           <item row="3" column="1" >
+            <widget class="VDisplay" name="dspApertura" />
+           </item>
+           <item row="4" column="1" >
+            <widget class="VDisplay" name="dspAR" />
+           </item>
+           <item row="0" column="3" >
+            <widget class="VDisplay" name="dspPanX" />
+           </item>
+           <item row="1" column="3" >
+            <widget class="VDisplay" name="dspPanY" />
+           </item>
+           <item row="2" column="3" >
+            <widget class="VDisplay" name="dspzNear" />
+           </item>
+           <item row="3" column="3" >
+            <widget class="VDisplay" name="dspzFar" />
+           </item>
+           <item row="0" column="1" >
+            <widget class="VDisplay" name="dspAnguloX" />
+           </item>
+          </layout>
+         </item>
+        </layout>
+       </widget>
+       <widget class="QWidget" name="tbIluminacion" >
+        <attribute name="title" >
+         <string>Iluminación</string>
+        </attribute>
+        <layout class="QVBoxLayout" >
+         <property name="margin" >
+          <number>9</number>
+         </property>
+         <property name="spacing" >
+          <number>6</number>
+         </property>
+         <item>
+          <layout class="QHBoxLayout" >
+           <property name="margin" >
+            <number>0</number>
+           </property>
+           <property name="spacing" >
+            <number>6</number>
+           </property>
+           <item>
+            <spacer>
+             <property name="orientation" >
+              <enum>Qt::Horizontal</enum>
+             </property>
+             <property name="sizeHint" >
+              <size>
+               <width>40</width>
+               <height>20</height>
+              </size>
+             </property>
+            </spacer>
+           </item>
+           <item>
+            <widget class="QComboBox" name="cmbLuz" >
+             <item>
+              <property name="text" >
+               <string>Luz 1</string>
+              </property>
+             </item>
+             <item>
+              <property name="text" >
+               <string>Luz 2</string>
+              </property>
+             </item>
+             <item>
+              <property name="text" >
+               <string>Luz 3</string>
+              </property>
+             </item>
+            </widget>
+           </item>
+           <item>
+            <widget class="QCheckBox" name="chkLActiva" >
+             <property name="text" >
+              <string>Activa</string>
+             </property>
+            </widget>
+           </item>
+           <item>
+            <spacer>
+             <property name="orientation" >
+              <enum>Qt::Horizontal</enum>
+             </property>
+             <property name="sizeHint" >
+              <size>
+               <width>40</width>
+               <height>20</height>
+              </size>
+             </property>
+            </spacer>
+           </item>
+          </layout>
+         </item>
+         <item>
+          <widget class="QGroupBox" name="grpColorLuz" >
+           <property name="title" >
+            <string>Color</string>
+           </property>
+           <layout class="QGridLayout" >
+            <property name="margin" >
+             <number>9</number>
+            </property>
+            <property name="spacing" >
+             <number>6</number>
+            </property>
+            <item row="0" column="0" >
+             <widget class="QLabel" name="lblLAmbiente" >
+              <property name="text" >
+               <string>Ambiente:</string>
+              </property>
+              <property name="buddy" >
+               <cstring>btnAmbiente</cstring>
+              </property>
+             </widget>
+            </item>
+            <item row="1" column="0" >
+             <widget class="QLabel" name="lblLDifusa" >
+              <property name="text" >
+               <string>Difusa:</string>
+              </property>
+              <property name="buddy" >
+               <cstring>btnDifusa</cstring>
+              </property>
+             </widget>
+            </item>
+            <item row="2" column="0" >
+             <widget class="QLabel" name="lblLEspecular" >
+              <property name="text" >
+               <string>Especular:</string>
+              </property>
+              <property name="buddy" >
+               <cstring>btnEspecular</cstring>
+              </property>
+             </widget>
+            </item>
+            <item row="2" column="1" >
+             <widget class="VPushButton" name="btnEspecular" >
+              <property name="text" >
+               <string/>
+              </property>
+             </widget>
+            </item>
+            <item row="1" column="1" >
+             <widget class="VPushButton" name="btnDifusa" >
+              <property name="text" >
+               <string/>
+              </property>
+             </widget>
+            </item>
+            <item row="0" column="1" >
+             <widget class="VPushButton" name="btnAmbiente" >
+              <property name="text" >
+               <string/>
+              </property>
+             </widget>
+            </item>
+           </layout>
+          </widget>
+         </item>
+         <item>
+          <widget class="QGroupBox" name="grpCoordLuz" >
+           <property name="title" >
+            <string>Coordenadas</string>
+           </property>
+           <layout class="QGridLayout" >
+            <property name="margin" >
+             <number>9</number>
+            </property>
+            <property name="spacing" >
+             <number>6</number>
+            </property>
+            <item row="0" column="0" >
+             <widget class="QLabel" name="lblX" >
+              <property name="text" >
+               <string>X:</string>
+              </property>
+              <property name="buddy" >
+               <cstring>txtlCoordX</cstring>
+              </property>
+             </widget>
+            </item>
+            <item row="2" column="0" >
+             <widget class="QLabel" name="lblZ" >
+              <property name="text" >
+               <string>Z:</string>
+              </property>
+              <property name="buddy" >
+               <cstring>txtlCoordZ</cstring>
+              </property>
+             </widget>
+            </item>
+            <item row="3" column="1" >
+             <widget class="QComboBox" name="cmbReferencia" >
+              <item>
+               <property name="text" >
+                <string>Observador</string>
+               </property>
+              </item>
+              <item>
+               <property name="text" >
+                <string>Escena</string>
+               </property>
+              </item>
+             </widget>
+            </item>
+            <item row="1" column="1" >
+             <widget class="QLineEdit" name="txtlCoordY" />
+            </item>
+            <item row="0" column="1" >
+             <widget class="QLineEdit" name="txtlCoordX" />
+            </item>
+            <item row="3" column="0" >
+             <widget class="QLabel" name="label_7" >
+              <property name="text" >
+               <string>Referencia:</string>
+              </property>
+              <property name="buddy" >
+               <cstring>cmbReferencia</cstring>
+              </property>
+             </widget>
+            </item>
+            <item row="1" column="0" >
+             <widget class="QLabel" name="lblY" >
+              <property name="text" >
+               <string>Y:</string>
+              </property>
+              <property name="buddy" >
+               <cstring>txtlCoordY</cstring>
+              </property>
+             </widget>
+            </item>
+            <item row="2" column="1" >
+             <widget class="QLineEdit" name="txtlCoordZ" />
+            </item>
+           </layout>
+          </widget>
+         </item>
+         <item>
+          <widget class="Line" name="line1" >
+           <property name="orientation" >
+            <enum>Qt::Horizontal</enum>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QGroupBox" name="grpOtrosCol" >
+           <property name="title" >
+            <string>Otros Colores</string>
+           </property>
+           <layout class="QGridLayout" >
+            <property name="margin" >
+             <number>9</number>
+            </property>
+            <property name="spacing" >
+             <number>6</number>
+            </property>
+            <item row="0" column="1" >
+             <widget class="QSlider" name="sldTransparencia" >
+              <property name="maximum" >
+               <number>100</number>
+              </property>
+              <property name="value" >
+               <number>50</number>
+              </property>
+              <property name="orientation" >
+               <enum>Qt::Horizontal</enum>
+              </property>
+             </widget>
+            </item>
+            <item row="0" column="0" >
+             <widget class="QLabel" name="lblCTrans" >
+              <property name="text" >
+               <string>Transparencia:</string>
+              </property>
+              <property name="buddy" >
+               <cstring>sldTransparencia</cstring>
+              </property>
+             </widget>
+            </item>
+            <item row="4" column="0" >
+             <widget class="QLabel" name="lblColorFondo" >
+              <property name="text" >
+               <string>Color fondo:</string>
+              </property>
+              <property name="buddy" >
+               <cstring>btnColorFondo</cstring>
+              </property>
+             </widget>
+            </item>
+            <item row="3" column="0" >
+             <widget class="QLabel" name="lblCVisibles" >
+              <property name="text" >
+               <string>Visibles:</string>
+              </property>
+              <property name="buddy" >
+               <cstring>btnVisibles</cstring>
+              </property>
+             </widget>
+            </item>
+            <item row="2" column="0" >
+             <widget class="QLabel" name="lblCSel" >
+              <property name="text" >
+               <string>Seleccionado:</string>
+              </property>
+              <property name="buddy" >
+               <cstring>btnSeleccionado</cstring>
+              </property>
+             </widget>
+            </item>
+            <item row="1" column="0" >
+             <widget class="QLabel" name="lblCFrust" >
+              <property name="text" >
+               <string>Frustum:</string>
+              </property>
+              <property name="buddy" >
+               <cstring>btnFrustum</cstring>
+              </property>
+             </widget>
+            </item>
+            <item row="1" column="1" >
+             <widget class="VPushButton" name="btnFrustum" >
+              <property name="text" >
+               <string/>
+              </property>
+             </widget>
+            </item>
+            <item row="2" column="1" >
+             <widget class="VPushButton" name="btnSeleccionado" >
+              <property name="text" >
+               <string/>
+              </property>
+             </widget>
+            </item>
+            <item row="3" column="1" >
+             <widget class="VPushButton" name="btnVisibles" >
+              <property name="text" >
+               <string/>
+              </property>
+             </widget>
+            </item>
+            <item row="4" column="1" >
+             <widget class="VPushButton" name="btnColorFondo" >
+              <property name="text" >
+               <string/>
+              </property>
+             </widget>
+            </item>
+           </layout>
+          </widget>
+         </item>
+         <item>
+          <spacer>
+           <property name="orientation" >
+            <enum>Qt::Vertical</enum>
+           </property>
+           <property name="sizeHint" >
+            <size>
+             <width>20</width>
+             <height>16</height>
+            </size>
+           </property>
+          </spacer>
+         </item>
+        </layout>
+       </widget>
+      </widget>
+     </item>
+     <item>
+      <layout class="QHBoxLayout" >
+       <property name="margin" >
+        <number>0</number>
+       </property>
+       <property name="spacing" >
+        <number>6</number>
+       </property>
+       <item>
+        <spacer>
+         <property name="orientation" >
+          <enum>Qt::Horizontal</enum>
+         </property>
+         <property name="sizeHint" >
+          <size>
+           <width>71</width>
+           <height>20</height>
+          </size>
+         </property>
+        </spacer>
+       </item>
+       <item>
+        <widget class="QPushButton" name="btnAyuda" >
+         <property name="text" >
+          <string>&amp;Ayuda</string>
+         </property>
         </widget>
-        <widget class="QLayoutWidget">
-            <property name="name">
-                <cstring>layDerecha</cstring>
-            </property>
-            <vbox>
-                <property name="name">
-                    <cstring>unnamed</cstring>
-                </property>
-                <widget class="QTabWidget">
-                    <property name="name">
-                        <cstring>tabOpciones</cstring>
-                    </property>
-                    <widget class="QWidget">
-                        <property name="name">
-                            <cstring>tbModelo</cstring>
-                        </property>
-                        <attribute name="title">
-                            <string>Modelo</string>
-                        </attribute>
-                        <vbox>
-                            <property name="name">
-                                <cstring>unnamed</cstring>
-                            </property>
-                            <widget class="QGroupBox">
-                                <property name="name">
-                                    <cstring>grpOpsModelo</cstring>
-                                </property>
-                                <property name="title">
-                                    <string>Opciones</string>
-                                </property>
-                                <grid>
-                                    <property name="name">
-                                        <cstring>unnamed</cstring>
-                                    </property>
-                                    <widget class="QLabel" row="1" column="0">
-                                        <property name="name">
-                                            <cstring>lblNumRobs</cstring>
-                                        </property>
-                                        <property name="text">
-                                            <string>Núm. robots:</string>
-                                        </property>
-                                    </widget>
-                                    <widget class="QSpinBox" row="3" column="1">
-                                        <property name="name">
-                                            <cstring>spbVlineal</cstring>
-                                        </property>
-                                        <property name="maxValue">
-                                            <number>10</number>
-                                        </property>
-                                        <property name="minValue">
-                                            <number>1</number>
-                                        </property>
-                                        <property name="value">
-                                            <number>1</number>
-                                        </property>
-                                    </widget>
-                                    <widget class="QLabel" row="3" column="0">
-                                        <property name="name">
-                                            <cstring>lblVlineal</cstring>
-                                        </property>
-                                        <property name="text">
-                                            <string>Vel. lineal:</string>
-                                        </property>
-                                    </widget>
-                                    <widget class="QSpinBox" row="1" column="1">
-                                        <property name="name">
-                                            <cstring>spbNumRobots</cstring>
-                                        </property>
-                                        <property name="maxValue">
-                                            <number>20</number>
-                                        </property>
-                                    </widget>
-                                    <widget class="QSpinBox" row="2" column="1">
-                                        <property name="name">
-                                            <cstring>spbVangular</cstring>
-                                        </property>
-                                        <property name="maxValue">
-                                            <number>40</number>
-                                        </property>
-                                        <property name="minValue">
-                                            <number>1</number>
-                                        </property>
-                                        <property name="value">
-                                            <number>10</number>
-                                        </property>
-                                    </widget>
-                                    <widget class="QLabel" row="2" column="0">
-                                        <property name="name">
-                                            <cstring>lblVangular</cstring>
-                                        </property>
-                                        <property name="text">
-                                            <string>Vel. angular:</string>
-                                        </property>
-                                    </widget>
-                                    <widget class="QComboBox" row="0" column="1">
-                                        <item>
-                                            <property name="text">
-                                                <string>Sin rotar</string>
-                                            </property>
-                                        </item>
-                                        <item>
-                                            <property name="text">
-                                                <string>Rotar 90º</string>
-                                            </property>
-                                        </item>
-                                        <item>
-                                            <property name="text">
-                                                <string>Rotar 180º</string>
-                                            </property>
-                                        </item>
-                                        <item>
-                                            <property name="text">
-                                                <string>Rotar 270º</string>
-                                            </property>
-                                        </item>
-                                        <property name="name">
-                                            <cstring>cmbRotaRobots</cstring>
-                                        </property>
-                                    </widget>
-                                    <widget class="QLabel" row="0" column="0">
-                                        <property name="name">
-                                            <cstring>lblPintaRobs</cstring>
-                                        </property>
-                                        <property name="text">
-                                            <string>Pinta robots:</string>
-                                        </property>
-                                    </widget>
-                                    <widget class="QSlider" row="5" column="1">
-                                        <property name="name">
-                                            <cstring>sldAltura</cstring>
-                                        </property>
-                                        <property name="orientation">
-                                            <enum>Horizontal</enum>
-                                        </property>
-                                    </widget>
-                                    <widget class="QLabel" row="5" column="0">
-                                        <property name="name">
-                                            <cstring>lblAltura</cstring>
-                                        </property>
-                                        <property name="text">
-                                            <string>Altura:</string>
-                                        </property>
-                                    </widget>
-                                    <widget class="QSpinBox" row="4" column="1">
-                                        <property name="name">
-                                            <cstring>spbFPS</cstring>
-                                        </property>
-                                        <property name="maxValue">
-                                            <number>100</number>
-                                        </property>
-                                        <property name="minValue">
-                                            <number>10</number>
-                                        </property>
-                                    </widget>
-                                    <widget class="QLabel" row="4" column="0">
-                                        <property name="name">
-                                            <cstring>lblFPS</cstring>
-                                        </property>
-                                        <property name="text">
-                                            <string>FPS:</string>
-                                        </property>
-                                    </widget>
-                                </grid>
-                            </widget>
-                            <widget class="QGroupBox">
-                                <property name="name">
-                                    <cstring>grpSeleccion</cstring>
-                                </property>
-                                <property name="title">
-                                    <string>Selección</string>
-                                </property>
-                                <vbox>
-                                    <property name="name">
-                                        <cstring>unnamed</cstring>
-                                    </property>
-                                    <widget class="QCheckBox">
-                                        <property name="name">
-                                            <cstring>chkMovimiento</cstring>
-                                        </property>
-                                        <property name="text">
-                                            <string>En movimento</string>
-                                        </property>
-                                    </widget>
-                                    <widget class="QCheckBox">
-                                        <property name="name">
-                                            <cstring>chkVisFrustum</cstring>
-                                        </property>
-                                        <property name="text">
-                                            <string>Visualizar frustum</string>
-                                        </property>
-                                    </widget>
-                                    <widget class="QCheckBox">
-                                        <property name="name">
-                                            <cstring>chkMarcVisibles</cstring>
-                                        </property>
-                                        <property name="text">
-                                            <string>Marcar visibles</string>
-                                        </property>
-                                    </widget>
-                                </vbox>
-                            </widget>
-                            <widget class="QLayoutWidget">
-                                <property name="name">
-                                    <cstring>layCMods</cstring>
-                                </property>
-                                <hbox>
-                                    <property name="name">
-                                        <cstring>unnamed</cstring>
-                                    </property>
-                                    <widget class="QPushButton">
-                                        <property name="name">
-                                            <cstring>btnCargaEs</cstring>
-                                        </property>
-                                        <property name="text">
-                                            <string>Carga escenario</string>
-                                        </property>
-                                    </widget>
-                                    <widget class="QPushButton">
-                                        <property name="name">
-                                            <cstring>btnCargaRo</cstring>
-                                        </property>
-                                        <property name="enabled">
-                                            <bool>false</bool>
-                                        </property>
-                                        <property name="text">
-                                            <string>Carga robots</string>
-                                        </property>
-                                    </widget>
-                                </hbox>
-                            </widget>
-                            <spacer>
-                                <property name="name">
-                                    <cstring>spModel</cstring>
-                                </property>
-                                <property name="orientation">
-                                    <enum>Vertical</enum>
-                                </property>
-                                <property name="sizeType">
-                                    <enum>Expanding</enum>
-                                </property>
-                                <property name="sizeHint">
-                                    <size>
-                                        <width>20</width>
-                                        <height>30</height>
-                                    </size>
-                                </property>
-                            </spacer>
-                            <widget class="QLayoutWidget">
-                                <property name="name">
-                                    <cstring>layShModelo</cstring>
-                                </property>
-                                <grid>
-                                    <property name="name">
-                                        <cstring>unnamed</cstring>
-                                    </property>
-                                    <widget class="VDisplay" row="0" column="3">
-                                        <property name="name">
-                                            <cstring>dspRadio</cstring>
-                                        </property>
-                                    </widget>
-                                    <widget class="QLabel" row="0" column="2">
-                                        <property name="name">
-                                            <cstring>lblRadio</cstring>
-                                        </property>
-                                        <property name="text">
-                                            <string>Radio escena:</string>
-                                        </property>
-                                    </widget>
-                                    <widget class="QLabel" row="1" column="0">
-                                        <property name="name">
-                                            <cstring>lblSeleccionado</cstring>
-                                        </property>
-                                        <property name="text">
-                                            <string>Seleccionado:</string>
-                                        </property>
-                                    </widget>
-                                    <widget class="VDisplay" row="1" column="3">
-                                        <property name="name">
-                                            <cstring>dspRadioXZ</cstring>
-                                        </property>
-                                    </widget>
-                                    <widget class="VDisplay" row="1" column="1">
-                                        <property name="name">
-                                            <cstring>dspSeleccionado</cstring>
-                                        </property>
-                                    </widget>
-                                    <widget class="QLabel" row="0" column="0">
-                                        <property name="name">
-                                            <cstring>lblAltura2</cstring>
-                                        </property>
-                                        <property name="text">
-                                            <string>Altura:</string>
-                                        </property>
-                                    </widget>
-                                    <widget class="VDisplay" row="0" column="1">
-                                        <property name="name">
-                                            <cstring>dspAltura</cstring>
-                                        </property>
-                                    </widget>
-                                    <widget class="QLabel" row="1" column="2">
-                                        <property name="name">
-                                            <cstring>lblRadioXZ</cstring>
-                                        </property>
-                                        <property name="text">
-                                            <string>Radio XZ:</string>
-                                        </property>
-                                    </widget>
-                                </grid>
-                            </widget>
-                        </vbox>
-                    </widget>
-                    <widget class="QWidget">
-                        <property name="name">
-                            <cstring>tbCam</cstring>
-                        </property>
-                        <attribute name="title">
-                            <string>Cámara</string>
-                        </attribute>
-                        <vbox>
-                            <property name="name">
-                                <cstring>unnamed</cstring>
-                            </property>
-                            <widget class="QGroupBox">
-                                <property name="name">
-                                    <cstring>grpRotaciones</cstring>
-                                </property>
-                                <property name="title">
-                                    <string>Rotaciones</string>
-                                </property>
-                                <grid>
-                                    <property name="name">
-                                        <cstring>unnamed</cstring>
-                                    </property>
-                                    <widget class="QSlider" row="0" column="1">
-                                        <property name="name">
-                                            <cstring>sldAnguloX</cstring>
-                                        </property>
-                                        <property name="maxValue">
-                                            <number>359</number>
-                                        </property>
-                                        <property name="orientation">
-                                            <enum>Horizontal</enum>
-                                        </property>
-                                    </widget>
-                                    <widget class="QSlider" row="2" column="1">
-                                        <property name="name">
-                                            <cstring>sldAnguloZ</cstring>
-                                        </property>
-                                        <property name="maxValue">
-                                            <number>359</number>
-                                        </property>
-                                        <property name="orientation">
-                                            <enum>Horizontal</enum>
-                                        </property>
-                                    </widget>
-                                    <widget class="QLabel" row="0" column="0">
-                                        <property name="name">
-                                            <cstring>lblEjeX</cstring>
-                                        </property>
-                                        <property name="text">
-                                            <string>Eje X:</string>
-                                        </property>
-                                    </widget>
-                                    <widget class="QLabel" row="2" column="0">
-                                        <property name="name">
-                                            <cstring>lblEjeZ</cstring>
-                                        </property>
-                                        <property name="text">
-                                            <string>Eje Z:</string>
-                                        </property>
-                                    </widget>
-                                    <widget class="QSlider" row="1" column="1">
-                                        <property name="name">
-                                            <cstring>sldAnguloY</cstring>
-                                        </property>
-                                        <property name="maxValue">
-                                            <number>359</number>
-                                        </property>
-                                        <property name="orientation">
-                                            <enum>Horizontal</enum>
-                                        </property>
-                                    </widget>
-                                    <widget class="QLabel" row="1" column="0">
-                                        <property name="name">
-                                            <cstring>lblEjeY</cstring>
-                                        </property>
-                                        <property name="text">
-                                            <string>Eje Y:</string>
-                                        </property>
-                                    </widget>
-                                </grid>
-                            </widget>
-                            <widget class="QGroupBox">
-                                <property name="name">
-                                    <cstring>grpZoom</cstring>
-                                </property>
-                                <property name="title">
-                                    <string>Zoom</string>
-                                </property>
-                                <grid>
-                                    <property name="name">
-                                        <cstring>unnamed</cstring>
-                                    </property>
-                                    <widget class="QSlider" row="1" column="1">
-                                        <property name="name">
-                                            <cstring>sldApertura</cstring>
-                                        </property>
-                                        <property name="minValue">
-                                            <number>10</number>
-                                        </property>
-                                        <property name="maxValue">
-                                            <number>179</number>
-                                        </property>
-                                        <property name="orientation">
-                                            <enum>Horizontal</enum>
-                                        </property>
-                                    </widget>
-                                    <widget class="QLabel" row="1" column="0">
-                                        <property name="name">
-                                            <cstring>lblApertura</cstring>
-                                        </property>
-                                        <property name="text">
-                                            <string>Apertura:</string>
-                                        </property>
-                                    </widget>
-                                    <widget class="QLabel" row="0" column="0">
-                                        <property name="name">
-                                            <cstring>lblDistancia</cstring>
-                                        </property>
-                                        <property name="text">
-                                            <string>Distancia:</string>
-                                        </property>
-                                    </widget>
-                                    <widget class="QSlider" row="0" column="1">
-                                        <property name="name">
-                                            <cstring>sldDistancia</cstring>
-                                        </property>
-                                        <property name="orientation">
-                                            <enum>Horizontal</enum>
-                                        </property>
-                                    </widget>
-                                </grid>
-                            </widget>
-                            <widget class="QGroupBox">
-                                <property name="name">
-                                    <cstring>grpOpcionesCam</cstring>
-                                </property>
-                                <property name="title">
-                                    <string>Opciones</string>
-                                </property>
-                                <grid>
-                                    <property name="name">
-                                        <cstring>unnamed</cstring>
-                                    </property>
-                                    <widget class="QCheckBox" row="1" column="0" rowspan="1" colspan="2">
-                                        <property name="name">
-                                            <cstring>chkCamPrimera</cstring>
-                                        </property>
-                                        <property name="text">
-                                            <string>Primera persona</string>
-                                        </property>
-                                    </widget>
-                                    <widget class="QLabel" row="2" column="0">
-                                        <property name="name">
-                                            <cstring>lblZFarPrimera</cstring>
-                                        </property>
-                                        <property name="text">
-                                            <string>Z Far:</string>
-                                        </property>
-                                    </widget>
-                                    <widget class="QSlider" row="2" column="1">
-                                        <property name="name">
-                                            <cstring>sldZFarPrimera</cstring>
-                                        </property>
-                                        <property name="minValue">
-                                            <number>10</number>
-                                        </property>
-                                        <property name="maxValue">
-                                            <number>100</number>
-                                        </property>
-                                        <property name="orientation">
-                                            <enum>Horizontal</enum>
-                                        </property>
-                                    </widget>
-                                    <widget class="QCheckBox" row="0" column="0" rowspan="1" colspan="2">
-                                        <property name="name">
-                                            <cstring>chkAlambre</cstring>
-                                        </property>
-                                        <property name="text">
-                                            <string>Modo alámbrico</string>
-                                        </property>
-                                    </widget>
-                                </grid>
-                            </widget>
-                            <widget class="QLayoutWidget">
-                                <property name="name">
-                                    <cstring>layReset</cstring>
-                                </property>
-                                <hbox>
-                                    <property name="name">
-                                        <cstring>unnamed</cstring>
-                                    </property>
-                                    <spacer>
-                                        <property name="name">
-                                            <cstring>spReset</cstring>
-                                        </property>
-                                        <property name="orientation">
-                                            <enum>Horizontal</enum>
-                                        </property>
-                                        <property name="sizeType">
-                                            <enum>Expanding</enum>
-                                        </property>
-                                        <property name="sizeHint">
-                                            <size>
-                                                <width>81</width>
-                                                <height>31</height>
-                                            </size>
-                                        </property>
-                                    </spacer>
-                                    <widget class="QPushButton">
-                                        <property name="name">
-                                            <cstring>btnResetCam</cstring>
-                                        </property>
-                                        <property name="text">
-                                            <string>&amp;Resetea</string>
-                                        </property>
-                                        <property name="accel">
-                                            <string>Alt+R</string>
-                                        </property>
-                                    </widget>
-                                </hbox>
-                            </widget>
-                            <spacer>
-                                <property name="name">
-                                    <cstring>spCamara</cstring>
-                                </property>
-                                <property name="orientation">
-                                    <enum>Vertical</enum>
-                                </property>
-                                <property name="sizeType">
-                                    <enum>Expanding</enum>
-                                </property>
-                                <property name="sizeHint">
-                                    <size>
-                                        <width>31</width>
-                                        <height>40</height>
-                                    </size>
-                                </property>
-                            </spacer>
-                            <widget class="QLayoutWidget">
-                                <property name="name">
-                                    <cstring>layShCamera</cstring>
-                                </property>
-                                <grid>
-                                    <property name="name">
-                                        <cstring>unnamed</cstring>
-                                    </property>
-                                    <widget class="VDisplay" row="1" column="3">
-                                        <property name="name">
-                                            <cstring>dspPanY</cstring>
-                                        </property>
-                                    </widget>
-                                    <widget class="QLabel" row="3" column="2">
-                                        <property name="name">
-                                            <cstring>lblzFar</cstring>
-                                        </property>
-                                        <property name="text">
-                                            <string>Z Far:</string>
-                                        </property>
-                                    </widget>
-                                    <widget class="VDisplay" row="0" column="1">
-                                        <property name="name">
-                                            <cstring>dspAnguloX</cstring>
-                                        </property>
-                                    </widget>
-                                    <widget class="QLabel" row="0" column="2">
-                                        <property name="name">
-                                            <cstring>lblPanX</cstring>
-                                        </property>
-                                        <property name="text">
-                                            <string>Pan X:</string>
-                                        </property>
-                                    </widget>
-                                    <widget class="VDisplay" row="3" column="3">
-                                        <property name="name">
-                                            <cstring>dspzFar</cstring>
-                                        </property>
-                                    </widget>
-                                    <widget class="QLabel" row="1" column="0">
-                                        <property name="name">
-                                            <cstring>lblAnguloY</cstring>
-                                        </property>
-                                        <property name="text">
-                                            <string>Ángulo Y:</string>
-                                        </property>
-                                    </widget>
-                                    <widget class="QLabel" row="3" column="0">
-                                        <property name="name">
-                                            <cstring>lblApertura2</cstring>
-                                        </property>
-                                        <property name="text">
-                                            <string>Apertura:</string>
-                                        </property>
-                                    </widget>
-                                    <widget class="QLabel" row="1" column="2">
-                                        <property name="name">
-                                            <cstring>lblPanY</cstring>
-                                        </property>
-                                        <property name="text">
-                                            <string>Pan Y:</string>
-                                        </property>
-                                    </widget>
-                                    <widget class="VDisplay" row="0" column="3">
-                                        <property name="name">
-                                            <cstring>dspPanX</cstring>
-                                        </property>
-                                    </widget>
-                                    <widget class="VDisplay" row="4" column="1">
-                                        <property name="name">
-                                            <cstring>dspAR</cstring>
-                                        </property>
-                                    </widget>
-                                    <widget class="VDisplay" row="3" column="1">
-                                        <property name="name">
-                                            <cstring>dspApertura</cstring>
-                                        </property>
-                                    </widget>
-                                    <widget class="QLabel" row="2" column="0">
-                                        <property name="name">
-                                            <cstring>lblAnguloZ</cstring>
-                                        </property>
-                                        <property name="text">
-                                            <string>Ángulo Z:</string>
-                                        </property>
-                                    </widget>
-                                    <widget class="QLabel" row="0" column="0">
-                                        <property name="name">
-                                            <cstring>lblAnguloX</cstring>
-                                        </property>
-                                        <property name="text">
-                                            <string>Ángulo X:</string>
-                                        </property>
-                                    </widget>
-                                    <widget class="VDisplay" row="2" column="3">
-                                        <property name="name">
-                                            <cstring>dspzNear</cstring>
-                                        </property>
-                                    </widget>
-                                    <widget class="QLabel" row="2" column="2">
-                                        <property name="name">
-                                            <cstring>lblzNear</cstring>
-                                        </property>
-                                        <property name="text">
-                                            <string>Z Near:</string>
-                                        </property>
-                                    </widget>
-                                    <widget class="QLabel" row="4" column="2">
-                                        <property name="name">
-                                            <cstring>lblDistancia2</cstring>
-                                        </property>
-                                        <property name="text">
-                                            <string>Distancia:</string>
-                                        </property>
-                                    </widget>
-                                    <widget class="VDisplay" row="1" column="1">
-                                        <property name="name">
-                                            <cstring>dspAnguloY</cstring>
-                                        </property>
-                                    </widget>
-                                    <widget class="VDisplay" row="4" column="3">
-                                        <property name="name">
-                                            <cstring>dspDistancia</cstring>
-                                        </property>
-                                    </widget>
-                                    <widget class="VDisplay" row="2" column="1">
-                                        <property name="name">
-                                            <cstring>dspAnguloZ</cstring>
-                                        </property>
-                                    </widget>
-                                    <widget class="QLabel" row="4" column="0">
-                                        <property name="name">
-                                            <cstring>lblAspecto</cstring>
-                                        </property>
-                                        <property name="text">
-                                            <string>A.R:</string>
-                                        </property>
-                                    </widget>
-                                </grid>
-                            </widget>
-                        </vbox>
-                    </widget>
-                    <widget class="QWidget">
-                        <property name="name">
-                            <cstring>tbIluminacion</cstring>
-                        </property>
-                        <attribute name="title">
-                            <string>Iluminación</string>
-                        </attribute>
-                        <vbox>
-                            <property name="name">
-                                <cstring>unnamed</cstring>
-                            </property>
-                            <widget class="QLayoutWidget">
-                                <property name="name">
-                                    <cstring>layLuz</cstring>
-                                </property>
-                                <hbox>
-                                    <property name="name">
-                                        <cstring>unnamed</cstring>
-                                    </property>
-                                    <spacer>
-                                        <property name="name">
-                                            <cstring>spL1</cstring>
-                                        </property>
-                                        <property name="orientation">
-                                            <enum>Horizontal</enum>
-                                        </property>
-                                        <property name="sizeType">
-                                            <enum>Expanding</enum>
-                                        </property>
-                                        <property name="sizeHint">
-                                            <size>
-                                                <width>21</width>
-                                                <height>20</height>
-                                            </size>
-                                        </property>
-                                    </spacer>
-                                    <widget class="QLabel">
-                                        <property name="name">
-                                            <cstring>lblLuz</cstring>
-                                        </property>
-                                        <property name="text">
-                                            <string>Luz:</string>
-                                        </property>
-                                    </widget>
-                                    <widget class="QComboBox">
-                                        <item>
-                                            <property name="text">
-                                                <string>Luz 1</string>
-                                            </property>
-                                        </item>
-                                        <item>
-                                            <property name="text">
-                                                <string>Luz 2</string>
-                                            </property>
-                                        </item>
-                                        <item>
-                                            <property name="text">
-                                                <string>Luz 3</string>
-                                            </property>
-                                        </item>
-                                        <property name="name">
-                                            <cstring>cmbLuz</cstring>
-                                        </property>
-                                    </widget>
-                                    <widget class="QCheckBox">
-                                        <property name="name">
-                                            <cstring>chkLActiva</cstring>
-                                        </property>
-                                        <property name="text">
-                                            <string>Activa</string>
-                                        </property>
-                                    </widget>
-                                    <spacer>
-                                        <property name="name">
-                                            <cstring>spL2</cstring>
-                                        </property>
-                                        <property name="orientation">
-                                            <enum>Horizontal</enum>
-                                        </property>
-                                        <property name="sizeType">
-                                            <enum>Expanding</enum>
-                                        </property>
-                                        <property name="sizeHint">
-                                            <size>
-                                                <width>21</width>
-                                                <height>21</height>
-                                            </size>
-                                        </property>
-                                    </spacer>
-                                </hbox>
-                            </widget>
-                            <widget class="QGroupBox">
-                                <property name="name">
-                                    <cstring>grpColorLuz</cstring>
-                                </property>
-                                <property name="title">
-                                    <string>Color</string>
-                                </property>
-                                <grid>
-                                    <property name="name">
-                                        <cstring>unnamed</cstring>
-                                    </property>
-                                    <widget class="QLabel" row="0" column="0">
-                                        <property name="name">
-                                            <cstring>lblLAmbiente</cstring>
-                                        </property>
-                                        <property name="text">
-                                            <string>Ambiente:</string>
-                                        </property>
-                                    </widget>
-                                    <widget class="QLabel" row="1" column="0">
-                                        <property name="name">
-                                            <cstring>lblLDifusa</cstring>
-                                        </property>
-                                        <property name="text">
-                                            <string>Difusa:</string>
-                                        </property>
-                                    </widget>
-                                    <widget class="QLabel" row="2" column="0">
-                                        <property name="name">
-                                            <cstring>lblLEspecular</cstring>
-                                        </property>
-                                        <property name="text">
-                                            <string>Especular:</string>
-                                        </property>
-                                    </widget>
-                                    <widget class="VPushButton" row="2" column="1">
-                                        <property name="name">
-                                            <cstring>btnEspecular</cstring>
-                                        </property>
-                                    </widget>
-                                    <widget class="VPushButton" row="1" column="1">
-                                        <property name="name">
-                                            <cstring>btnDifusa</cstring>
-                                        </property>
-                                    </widget>
-                                    <widget class="VPushButton" row="0" column="1">
-                                        <property name="name">
-                                            <cstring>btnAmbiente</cstring>
-                                        </property>
-                                    </widget>
-                                </grid>
-                            </widget>
-                            <widget class="QGroupBox">
-                                <property name="name">
-                                    <cstring>grpCoordLuz</cstring>
-                                </property>
-                                <property name="title">
-                                    <string>Coordenadas</string>
-                                </property>
-                                <grid>
-                                    <property name="name">
-                                        <cstring>unnamed</cstring>
-                                    </property>
-                                    <widget class="QLabel" row="0" column="0">
-                                        <property name="name">
-                                            <cstring>lblLX</cstring>
-                                        </property>
-                                        <property name="text">
-                                            <string>X:</string>
-                                        </property>
-                                    </widget>
-                                    <widget class="QLabel" row="1" column="0">
-                                        <property name="name">
-                                            <cstring>lblLY</cstring>
-                                        </property>
-                                        <property name="text">
-                                            <string>Y:</string>
-                                        </property>
-                                    </widget>
-                                    <widget class="QLabel" row="2" column="0">
-                                        <property name="name">
-                                            <cstring>lblLZ</cstring>
-                                        </property>
-                                        <property name="text">
-                                            <string>Z:</string>
-                                        </property>
-                                    </widget>
-                                    <widget class="QComboBox" row="3" column="1">
-                                        <item>
-                                            <property name="text">
-                                                <string>Observador</string>
-                                            </property>
-                                        </item>
-                                        <item>
-                                            <property name="text">
-                                                <string>Escena</string>
-                                            </property>
-                                        </item>
-                                        <property name="name">
-                                            <cstring>cmbReferencia</cstring>
-                                        </property>
-                                    </widget>
-                                    <widget class="QLabel" row="3" column="0">
-                                        <property name="name">
-                                            <cstring>lblLRef</cstring>
-                                        </property>
-                                        <property name="text">
-                                            <string>Referencia:</string>
-                                        </property>
-                                    </widget>
-                                    <widget class="QLineEdit" row="2" column="1">
-                                        <property name="name">
-                                            <cstring>txtlCoordZ</cstring>
-                                        </property>
-                                    </widget>
-                                    <widget class="QLineEdit" row="1" column="1">
-                                        <property name="name">
-                                            <cstring>txtlCoordY</cstring>
-                                        </property>
-                                    </widget>
-                                    <widget class="QLineEdit" row="0" column="1">
-                                        <property name="name">
-                                            <cstring>txtlCoordX</cstring>
-                                        </property>
-                                    </widget>
-                                </grid>
-                            </widget>
-                            <widget class="Line">
-                                <property name="name">
-                                    <cstring>line1</cstring>
-                                </property>
-                                <property name="frameShape">
-                                    <enum>HLine</enum>
-                                </property>
-                                <property name="frameShadow">
-                                    <enum>Sunken</enum>
-                                </property>
-                                <property name="orientation">
-                                    <enum>Horizontal</enum>
-                                </property>
-                            </widget>
-                            <widget class="QGroupBox">
-                                <property name="name">
-                                    <cstring>grpOtrosCol</cstring>
-                                </property>
-                                <property name="title">
-                                    <string>Otros colores</string>
-                                </property>
-                                <grid>
-                                    <property name="name">
-                                        <cstring>unnamed</cstring>
-                                    </property>
-                                    <widget class="QLabel" row="2" column="0">
-                                        <property name="name">
-                                            <cstring>lblCSel</cstring>
-                                        </property>
-                                        <property name="text">
-                                            <string>Seleccionado:</string>
-                                        </property>
-                                    </widget>
-                                    <widget class="VPushButton" row="1" column="1">
-                                        <property name="name">
-                                            <cstring>btnFrustum</cstring>
-                                        </property>
-                                    </widget>
-                                    <widget class="VPushButton" row="3" column="1">
-                                        <property name="name">
-                                            <cstring>btnVisibles</cstring>
-                                        </property>
-                                    </widget>
-                                    <widget class="VPushButton" row="2" column="1">
-                                        <property name="name">
-                                            <cstring>btnSeleccionado</cstring>
-                                        </property>
-                                    </widget>
-                                    <widget class="QLabel" row="1" column="0">
-                                        <property name="name">
-                                            <cstring>lblCFrust</cstring>
-                                        </property>
-                                        <property name="text">
-                                            <string>Frustum:</string>
-                                        </property>
-                                    </widget>
-                                    <widget class="QLabel" row="0" column="0">
-                                        <property name="name">
-                                            <cstring>lblCTrans</cstring>
-                                        </property>
-                                        <property name="text">
-                                            <string>Transparencia:</string>
-                                        </property>
-                                    </widget>
-                                    <widget class="QSlider" row="0" column="1">
-                                        <property name="name">
-                                            <cstring>sldTransparencia</cstring>
-                                        </property>
-                                        <property name="maxValue">
-                                            <number>100</number>
-                                        </property>
-                                        <property name="value">
-                                            <number>50</number>
-                                        </property>
-                                        <property name="orientation">
-                                            <enum>Horizontal</enum>
-                                        </property>
-                                    </widget>
-                                    <widget class="QLabel" row="4" column="0">
-                                        <property name="name">
-                                            <cstring>lblColorFondo</cstring>
-                                        </property>
-                                        <property name="text">
-                                            <string>Color fondo:</string>
-                                        </property>
-                                    </widget>
-                                    <widget class="VPushButton" row="4" column="1">
-                                        <property name="name">
-                                            <cstring>btnColorFondo</cstring>
-                                        </property>
-                                    </widget>
-                                    <widget class="QLabel" row="3" column="0">
-                                        <property name="name">
-                                            <cstring>lblCVisibles</cstring>
-                                        </property>
-                                        <property name="text">
-                                            <string>Visibles:</string>
-                                        </property>
-                                    </widget>
-                                </grid>
-                            </widget>
-                            <spacer>
-                                <property name="name">
-                                    <cstring>spL3</cstring>
-                                </property>
-                                <property name="orientation">
-                                    <enum>Vertical</enum>
-                                </property>
-                                <property name="sizeType">
-                                    <enum>Expanding</enum>
-                                </property>
-                                <property name="sizeHint">
-                                    <size>
-                                        <width>21</width>
-                                        <height>30</height>
-                                    </size>
-                                </property>
-                            </spacer>
-                        </vbox>
-                    </widget>
-                </widget>
-                <widget class="QLayoutWidget">
-                    <property name="name">
-                        <cstring>layAySal</cstring>
-                    </property>
-                    <hbox>
-                        <property name="name">
-                            <cstring>unnamed</cstring>
-                        </property>
-                        <spacer>
-                            <property name="name">
-                                <cstring>spAySal</cstring>
-                            </property>
-                            <property name="orientation">
-                                <enum>Horizontal</enum>
-                            </property>
-                            <property name="sizeType">
-                                <enum>Expanding</enum>
-                            </property>
-                            <property name="sizeHint">
-                                <size>
-                                    <width>81</width>
-                                    <height>21</height>
-                                </size>
-                            </property>
-                        </spacer>
-                        <widget class="QPushButton">
-                            <property name="name">
-                                <cstring>btnAyuda</cstring>
-                            </property>
-                            <property name="text">
-                                <string>&amp;Ayuda</string>
-                            </property>
-                            <property name="accel">
-                                <string>Alt+A</string>
-                            </property>
-                        </widget>
-                        <widget class="QPushButton">
-                            <property name="name">
-                                <cstring>btnSalir</cstring>
-                            </property>
-                            <property name="text">
-                                <string>&amp;Salir</string>
-                            </property>
-                            <property name="accel">
-                                <string>Alt+S</string>
-                            </property>
-                        </widget>
-                    </hbox>
-                </widget>
-            </vbox>
+       </item>
+       <item>
+        <widget class="QPushButton" name="btnSalir" >
+         <property name="text" >
+          <string>&amp;Salir</string>
+         </property>
         </widget>
-    </hbox>
-</widget>
-<toolbars>
-</toolbars>
-<customwidgets>
-    <customwidget>
-        <class>GLWidget</class>
-        <header location="local">glwidget.h</header>
-        <sizehint>
-            <width>-1</width>
-            <height>-1</height>
-        </sizehint>
-        <container>0</container>
-        <sizepolicy>
-            <hordata>5</hordata>
-            <verdata>5</verdata>
-            <horstretch>0</horstretch>
-            <verstretch>0</verstretch>
-        </sizepolicy>
-        <signal>nuevoAnguloX(int)</signal>
-        <signal>nuevoAnguloY(int)</signal>
-        <signal>nuevoAnguloZ(int)</signal>
-        <signal>nuevoAnguloA(int)</signal>
-        <signal>nuevaDist(int)</signal>
-        <signal>nuevaSel(int)</signal>
-        <signal>nuevoZNear(double)</signal>
-        <signal>nuevoZFar(double)</signal>
-        <signal>nuevoPanX(double)</signal>
-        <signal>nuevoPanY(double)</signal>
-        <signal>nuevoAR(double)</signal>
-        <signal>nuevoRadio(double)</signal>
-        <signal>nuevoRadioXZ(double)</signal>
-        <signal>alturas(int, int)</signal>
-        <slot access="public" specifier="">updateGL()</slot>
-        <slot access="public" specifier="">setAnguloY(int)</slot>
-        <slot access="public" specifier="">setAnguloX(int)</slot>
-        <slot access="public" specifier="">setAnguloZ(int)</slot>
-        <slot access="public" specifier="">setApertura(int)</slot>
-        <slot access="public" specifier="">setDistancia(int)</slot>
-        <slot access="public" specifier="">setVAngular(int)</slot>
-        <slot access="public" specifier="">setVLineal(int)</slot>
-        <slot access="public" specifier="">setAltura(int)</slot>
-        <slot access="public" specifier="">setRotacionRob(int)</slot>
-        <slot access="public" specifier="">setPintaFrus(bool)</slot>
-        <slot access="public" specifier="">reseteaCam()</slot>
-        <slot access="public" specifier="">setCamPrimera(bool)</slot>
-        <slot access="public" specifier="">setZFarCamPri(int)</slot>
-        <slot access="public" specifier="">setNumRobots(int)</slot>
-        <slot access="public" specifier="">setFPS(int)</slot>
-        <slot access="public" specifier="">animaRobots(bool)</slot>
-        <slot access="public" specifier="">setMarcaVis(bool)</slot>
-        <slot access="public" specifier="">setTrFrust(int)</slot>
-        <slot access="public" specifier="">pintaAlambre(bool)</slot>
-    </customwidget>
-    <customwidget>
-        <class>VDisplay</class>
-        <header location="local">vdisplay.h</header>
-        <sizehint>
-            <width>-1</width>
-            <height>-1</height>
-        </sizehint>
-        <container>0</container>
-        <sizepolicy>
-            <hordata>5</hordata>
-            <verdata>5</verdata>
-            <horstretch>0</horstretch>
-            <verstretch>0</verstretch>
-        </sizepolicy>
-        <slot access="public" specifier="">display(int)</slot>
-        <slot access="public" specifier="">display(float)</slot>
-        <slot access="public" specifier="">display(unsiged int)</slot>
-        <slot access="public" specifier="">display(double)</slot>
-        <slot access="public" specifier="">displayFloat(int)</slot>
-        <slot access="public" specifier="">displayFloat(unsigned int)</slot>
-    </customwidget>
-    <customwidget>
-        <class>VPushButton</class>
-        <header location="local">vpushbutton.h</header>
-        <sizehint>
-            <width>-1</width>
-            <height>-1</height>
-        </sizehint>
-        <container>0</container>
-        <sizepolicy>
-            <hordata>5</hordata>
-            <verdata>5</verdata>
-            <horstretch>0</horstretch>
-            <verstretch>0</verstretch>
-        </sizepolicy>
-        <signal>clicked()</signal>
-        <slot access="public" specifier="">setR(int)</slot>
-        <slot access="public" specifier="">setG(int)</slot>
-        <slot access="public" specifier="">setB(int)</slot>
-        <slot access="public" specifier="">setRGB(int, int, int)</slot>
-    </customwidget>
-</customwidgets>
-<connections>
-    <connection>
-        <sender>btnAyuda</sender>
-        <signal>clicked()</signal>
-        <receiver>Ventana</receiver>
-        <slot>cargaAyuda()</slot>
-    </connection>
-    <connection>
-        <sender>btnAmbiente</sender>
-        <signal>clicked()</signal>
-        <receiver>Ventana</receiver>
-        <slot>setColorAmbiente()</slot>
-    </connection>
-    <connection>
-        <sender>btnCargaEs</sender>
-        <signal>clicked()</signal>
-        <receiver>Ventana</receiver>
-        <slot>cargaEscenario()</slot>
-    </connection>
-    <connection>
-        <sender>btnCargaRo</sender>
-        <signal>clicked()</signal>
-        <receiver>Ventana</receiver>
-        <slot>cargaRobot()</slot>
-    </connection>
-    <connection>
-        <sender>btnDifusa</sender>
-        <signal>clicked()</signal>
-        <receiver>Ventana</receiver>
-        <slot>setColorDifusa()</slot>
-    </connection>
-    <connection>
-        <sender>btnEspecular</sender>
-        <signal>clicked()</signal>
-        <receiver>Ventana</receiver>
-        <slot>setColorEspecular()</slot>
-    </connection>
-    <connection>
-        <sender>btnFrustum</sender>
-        <signal>clicked()</signal>
-        <receiver>Ventana</receiver>
-        <slot>colorFrustum()</slot>
-    </connection>
-    <connection>
-        <sender>btnResetCam</sender>
-        <signal>clicked()</signal>
-        <receiver>glVista</receiver>
-        <slot>reseteaCam()</slot>
-    </connection>
-    <connection>
-        <sender>btnSeleccionado</sender>
-        <signal>clicked()</signal>
-        <receiver>Ventana</receiver>
-        <slot>setColorSeleccionado()</slot>
-    </connection>
-    <connection>
-        <sender>btnSalir</sender>
-        <signal>clicked()</signal>
-        <receiver>Ventana</receiver>
-        <slot>close()</slot>
-    </connection>
-    <connection>
-        <sender>btnVisibles</sender>
-        <signal>clicked()</signal>
-        <receiver>Ventana</receiver>
-        <slot>setColorVisibles()</slot>
-    </connection>
-    <connection>
-        <sender>chkCamPrimera</sender>
-        <signal>toggled(bool)</signal>
-        <receiver>glVista</receiver>
-        <slot>setCamPrimera(bool)</slot>
-    </connection>
-    <connection>
-        <sender>chkAlambre</sender>
-        <signal>toggled(bool)</signal>
-        <receiver>glVista</receiver>
-        <slot>pintaAlambre(bool)</slot>
-    </connection>
-    <connection>
-        <sender>chkLActiva</sender>
-        <signal>toggled(bool)</signal>
-        <receiver>Ventana</receiver>
-        <slot>cambiaEstadoLuz(bool)</slot>
-    </connection>
-    <connection>
-        <sender>chkMarcVisibles</sender>
-        <signal>toggled(bool)</signal>
-        <receiver>glVista</receiver>
-        <slot>setMarcaVis(bool)</slot>
-    </connection>
-    <connection>
-        <sender>chkMovimiento</sender>
-        <signal>toggled(bool)</signal>
-        <receiver>glVista</receiver>
-        <slot>animaRobots(bool)</slot>
-    </connection>
-    <connection>
-        <sender>chkVisFrustum</sender>
-        <signal>toggled(bool)</signal>
-        <receiver>glVista</receiver>
-        <slot>setPintaFrus(bool)</slot>
-    </connection>
-    <connection>
-        <sender>cmbLuz</sender>
-        <signal>activated(int)</signal>
-        <receiver>Ventana</receiver>
-        <slot>cambiaLuz(int)</slot>
-    </connection>
-    <connection>
-        <sender>cmbReferencia</sender>
-        <signal>activated(int)</signal>
-        <receiver>Ventana</receiver>
-        <slot>coordenadasLuz()</slot>
-    </connection>
-    <connection>
-        <sender>cmbRotaRobots</sender>
-        <signal>activated(int)</signal>
-        <receiver>glVista</receiver>
-        <slot>setRotacionRob(int)</slot>
-    </connection>
-    <connection>
-        <sender>glVista</sender>
-        <signal>nuevoAR(double)</signal>
-        <receiver>dspAR</receiver>
-        <slot>display(double)</slot>
-    </connection>
-    <connection>
-        <sender>glVista</sender>
-        <signal>nuevoPanX(double)</signal>
-        <receiver>dspPanX</receiver>
-        <slot>display(double)</slot>
-    </connection>
-    <connection>
-        <sender>glVista</sender>
-        <signal>nuevoPanY(double)</signal>
-        <receiver>dspPanY</receiver>
-        <slot>display(double)</slot>
-    </connection>
-    <connection>
-        <sender>glVista</sender>
-        <signal>nuevoZNear(double)</signal>
-        <receiver>dspzNear</receiver>
-        <slot>display(double)</slot>
-    </connection>
-    <connection>
-        <sender>glVista</sender>
-        <signal>nuevoZFar(double)</signal>
-        <receiver>dspzFar</receiver>
-        <slot>display(double)</slot>
-    </connection>
-    <connection>
-        <sender>glVista</sender>
-        <signal>nuevoAnguloA(int)</signal>
-        <receiver>dspApertura</receiver>
-        <slot>display(int)</slot>
-    </connection>
-    <connection>
-        <sender>glVista</sender>
-        <signal>nuevoAnguloX(int)</signal>
-        <receiver>sldAnguloX</receiver>
-        <slot>setValue(int)</slot>
-    </connection>
-    <connection>
-        <sender>glVista</sender>
-        <signal>nuevoAnguloY(int)</signal>
-        <receiver>sldAnguloY</receiver>
-        <slot>setValue(int)</slot>
-    </connection>
-    <connection>
-        <sender>glVista</sender>
-        <signal>nuevoAnguloZ(int)</signal>
-        <receiver>sldAnguloZ</receiver>
-        <slot>setValue(int)</slot>
-    </connection>
-    <connection>
-        <sender>glVista</sender>
-        <signal>nuevoAnguloA(int)</signal>
-        <receiver>sldApertura</receiver>
-        <slot>setValue(int)</slot>
-    </connection>
-    <connection>
-        <sender>glVista</sender>
-        <signal>nuevaDist(int)</signal>
-        <receiver>sldDistancia</receiver>
-        <slot>setValue(int)</slot>
-    </connection>
-    <connection>
-        <sender>glVista</sender>
-        <signal>nuevaSel(int)</signal>
-        <receiver>dspSeleccionado</receiver>
-        <slot>display(int)</slot>
-    </connection>
-    <connection>
-        <sender>glVista</sender>
-        <signal>nuevoRadio(double)</signal>
-        <receiver>dspRadio</receiver>
-        <slot>display(double)</slot>
-    </connection>
-    <connection>
-        <sender>glVista</sender>
-        <signal>nuevoRadioXZ(double)</signal>
-        <receiver>dspRadioXZ</receiver>
-        <slot>display(double)</slot>
-    </connection>
-    <connection>
-        <sender>glVista</sender>
-        <signal>nuevoRadio(double)</signal>
-        <receiver>Ventana</receiver>
-        <slot>actualizaRadio(double)</slot>
-    </connection>
-    <connection>
-        <sender>glVista</sender>
-        <signal>alturas(int,int)</signal>
-        <receiver>Ventana</receiver>
-        <slot>actualizaAlturas(int,int)</slot>
-    </connection>
-    <connection>
-        <sender>sldAltura</sender>
-        <signal>sliderMoved(int)</signal>
-        <receiver>glVista</receiver>
-        <slot>setAltura(int)</slot>
-    </connection>
-    <connection>
-        <sender>sldAltura</sender>
-        <signal>valueChanged(int)</signal>
-        <receiver>dspAltura</receiver>
-        <slot>displayFloat(int)</slot>
-    </connection>
-    <connection>
-        <sender>sldAnguloX</sender>
-        <signal>valueChanged(int)</signal>
-        <receiver>dspAnguloX</receiver>
-        <slot>display(int)</slot>
-    </connection>
-    <connection>
-        <sender>sldAnguloX</sender>
-        <signal>sliderMoved(int)</signal>
-        <receiver>glVista</receiver>
-        <slot>setAnguloX(int)</slot>
-    </connection>
-    <connection>
-        <sender>sldAnguloY</sender>
-        <signal>valueChanged(int)</signal>
-        <receiver>dspAnguloY</receiver>
-        <slot>display(int)</slot>
-    </connection>
-    <connection>
-        <sender>sldAnguloY</sender>
-        <signal>sliderMoved(int)</signal>
-        <receiver>glVista</receiver>
-        <slot>setAnguloY(int)</slot>
-    </connection>
-    <connection>
-        <sender>sldAnguloZ</sender>
-        <signal>valueChanged(int)</signal>
-        <receiver>dspAnguloZ</receiver>
-        <slot>display(int)</slot>
-    </connection>
-    <connection>
-        <sender>sldAnguloZ</sender>
-        <signal>sliderMoved(int)</signal>
-        <receiver>glVista</receiver>
-        <slot>setAnguloZ(int)</slot>
-    </connection>
-    <connection>
-        <sender>sldDistancia</sender>
-        <signal>valueChanged(int)</signal>
-        <receiver>dspDistancia</receiver>
-        <slot>displayFloat(int)</slot>
-    </connection>
-    <connection>
-        <sender>sldDistancia</sender>
-        <signal>sliderMoved(int)</signal>
-        <receiver>glVista</receiver>
-        <slot>setDistancia(int)</slot>
-    </connection>
-    <connection>
-        <sender>sldApertura</sender>
-        <signal>sliderMoved(int)</signal>
-        <receiver>glVista</receiver>
-        <slot>setApertura(int)</slot>
-    </connection>
-    <connection>
-        <sender>sldTransparencia</sender>
-        <signal>valueChanged(int)</signal>
-        <receiver>glVista</receiver>
-        <slot>setTrFrust(int)</slot>
-    </connection>
-    <connection>
-        <sender>sldZFarPrimera</sender>
-        <signal>valueChanged(int)</signal>
-        <receiver>glVista</receiver>
-        <slot>setZFarCamPri(int)</slot>
-    </connection>
-    <connection>
-        <sender>spbFPS</sender>
-        <signal>valueChanged(int)</signal>
-        <receiver>glVista</receiver>
-        <slot>setFPS(int)</slot>
-    </connection>
-    <connection>
-        <sender>spbNumRobots</sender>
-        <signal>valueChanged(int)</signal>
-        <receiver>glVista</receiver>
-        <slot>setNumRobots(int)</slot>
-    </connection>
-    <connection>
-        <sender>spbVangular</sender>
-        <signal>valueChanged(int)</signal>
-        <receiver>glVista</receiver>
-        <slot>setVAngular(int)</slot>
-    </connection>
-    <connection>
-        <sender>spbVlineal</sender>
-        <signal>valueChanged(int)</signal>
-        <receiver>glVista</receiver>
-        <slot>setVLineal(int)</slot>
-    </connection>
-    <connection>
-        <sender>txtlCoordX</sender>
-        <signal>returnPressed()</signal>
-        <receiver>Ventana</receiver>
-        <slot>coordenadasLuz()</slot>
-    </connection>
-    <connection>
-        <sender>txtlCoordY</sender>
-        <signal>returnPressed()</signal>
-        <receiver>Ventana</receiver>
-        <slot>coordenadasLuz()</slot>
-    </connection>
-    <connection>
-        <sender>txtlCoordZ</sender>
-        <signal>returnPressed()</signal>
-        <receiver>Ventana</receiver>
-        <slot>coordenadasLuz()</slot>
-    </connection>
-    <connection>
-        <sender>btnColorFondo</sender>
-        <signal>clicked()</signal>
-        <receiver>Ventana</receiver>
-        <slot>colorFondo()</slot>
-    </connection>
-</connections>
-<includes>
-    <include location="local" impldecl="in implementation">ventana.ui.h</include>
-</includes>
-<forwards>
-    <forward>class QFileDialog</forward>
-    <forward>class Ayuda</forward>
-</forwards>
-<variables>
-    <variable access="private">QFileDialog *seleccionModelo;</variable>
-    <variable access="private">Ayuda *ventanaAyuda;</variable>
-</variables>
-<slots>
-    <slot access="private" specifier="non virtual">cargaAyuda()</slot>
-    <slot access="private" specifier="non virtual">cargaEscenario()</slot>
-    <slot access="private" specifier="non virtual">cargaRobot()</slot>
-    <slot access="private" specifier="non virtual">actualizaRadio( double radi )</slot>
-    <slot access="private" specifier="non virtual">actualizaAlturas( int maxescenaY, int maxrobotY )</slot>
-    <slot access="private" specifier="non virtual">setColorAmbiente()</slot>
-    <slot access="private" specifier="non virtual">setColorDifusa()</slot>
-    <slot access="private" specifier="non virtual">setColorEspecular()</slot>
-    <slot access="private" specifier="non virtual">coordenadasLuz()</slot>
-    <slot access="private" specifier="non virtual">setColorSeleccionado()</slot>
-    <slot access="private" specifier="non virtual">setColorVisibles()</slot>
-    <slot access="private" specifier="non virtual">colorFrustum()</slot>
-    <slot access="private" specifier="non virtual">colorFondo()</slot>
-    <slot access="private" specifier="non virtual">cambiaLuz( int luz )</slot>
-    <slot access="private" specifier="non virtual">cambiaEstadoLuz( bool estado )</slot>
-</slots>
-<functions>
-    <function access="private" specifier="non virtual">init()</function>
-    <function access="private" specifier="non virtual">setColorLuz( VPushButton * b, int componente )</function>
-    <function access="private" specifier="non virtual">colorSeleccionados( VPushButton * b, int indice )</function>
-</functions>
-<pixmapinproject/>
-<layoutdefaults spacing="6" margin="11"/>
-<includehints>
-    <includehint>glwidget.h</includehint>
-    <includehint>vdisplay.h</includehint>
-    <includehint>vdisplay.h</includehint>
-    <includehint>vdisplay.h</includehint>
-    <includehint>vdisplay.h</includehint>
-    <includehint>vdisplay.h</includehint>
-    <includehint>vdisplay.h</includehint>
-    <includehint>vdisplay.h</includehint>
-    <includehint>vdisplay.h</includehint>
-    <includehint>vdisplay.h</includehint>
-    <includehint>vdisplay.h</includehint>
-    <includehint>vdisplay.h</includehint>
-    <includehint>vdisplay.h</includehint>
-    <includehint>vdisplay.h</includehint>
-    <includehint>vdisplay.h</includehint>
-    <includehint>vpushbutton.h</includehint>
-    <includehint>vpushbutton.h</includehint>
-    <includehint>vpushbutton.h</includehint>
-    <includehint>vpushbutton.h</includehint>
-    <includehint>vpushbutton.h</includehint>
-    <includehint>vpushbutton.h</includehint>
-    <includehint>vpushbutton.h</includehint>
-</includehints>
-</UI>
+       </item>
+      </layout>
+     </item>
+    </layout>
+   </item>
+  </layout>
+ </widget>
+ <customwidgets>
+  <customwidget>
+   <class>VPushButton</class>
+   <extends>QPushButton</extends>
+   <header>vpushbutton.h</header>
+  </customwidget>
+  <customwidget>
+   <class>GLWidget</class>
+   <extends>QWidget</extends>
+   <header>glwidget.h</header>
+  </customwidget>
+  <customwidget>
+   <class>VDisplay</class>
+   <extends>QLineEdit</extends>
+   <header>vdisplay.h</header>
+  </customwidget>
+ </customwidgets>
+ <resources/>
+ <connections/>
+</ui>

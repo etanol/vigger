@@ -5,10 +5,8 @@
 #ifndef _VPUSHBUTTON_H_
 #define _VPUSHBUTTON_H_
 
-#include <qpushbutton.h>
-#include <qcolor.h>
+#include <QPushButton>
 
-#define BYTE_MASK 0x000000FF
 
 class VPushButton : public QPushButton {
 
@@ -16,11 +14,11 @@ class VPushButton : public QPushButton {
 
 public:
 
-    VPushButton (QWidget *parent, const char *name = 0)
-            : QPushButton(parent, name)
+    VPushButton (QWidget *parent)
+            : QPushButton(parent)
     {
         r = 0; g = 0; b = 0;
-        setPaletteBackgroundColor(QColor(r, g, b));
+        updateColor();
     }
 
     inline int getR () { return r; }
@@ -29,19 +27,23 @@ public:
 
 public slots:
 
-    inline void setR (int n)
-        { r = n & BYTE_MASK; setPaletteBackgroundColor(QColor( r, g, b )); }
-    inline void setG (int n)
-        { g = n & BYTE_MASK; setPaletteBackgroundColor(QColor( r, g, b )); }
-    inline void setB (int n)
-        { b = n & BYTE_MASK; setPaletteBackgroundColor(QColor( r, g, b )); }
+    inline void setR (int n) { r = n; updateColor(); }
+    inline void setG (int n) { g = n; updateColor(); }
+    inline void setB (int n) { b = n; updateColor(); }
 
     inline void setRGB (int pr, int pg, int pb)
-        { r = pr; g = pg; b = pb; setPaletteBackgroundColor(QColor(r, g, b)); }
+                { r = pr; g = pg; b = pb; updateColor(); }
 
 private:
 
     int r, g, b;
+
+    void updateColor ()
+    {
+        QPalette p = palette();
+        p.setColor(backgroundRole(), QColor(r, g, b));
+        setPalette(p);
+    }
 
 };
 

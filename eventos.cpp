@@ -2,6 +2,7 @@
 // eventos.cpp - Gestión de eventos del GLWidget.
 //
 #include "glwidget.h"
+#include <QKeyEvent>
 
 
 //
@@ -13,45 +14,47 @@
 //
 void GLWidget::keyPressEvent(QKeyEvent *ev)
 {
-    switch (ev->ascii()) {
-        case 'a':
-        case 'A':
+    switch (ev->key()) {
+        case Qt::Key_A:
             cam_anguloa0 += 5;
             ajustaApertura();
             break;
-        case 'z':
-        case 'Z':
+
+        case Qt::Key_Z:
             cam_anguloa0 -= 5;
             ajustaApertura();
             break;
-        case '+':
+
+        case Qt::Key_Plus:
             cam_distancia -= cam_avance;
             emit nuevaDist(entero(cam_distancia));
             ajustaRecorteZ();
             break;
-        case '-':
+
+        case Qt::Key_Minus:
             cam_distancia += cam_avance;
             emit nuevaDist(entero(cam_distancia));
             ajustaRecorteZ();
             break;
-        case 'u':
-        case 'U':
+
+        case Qt::Key_U:
             cam_anguloz -= 5;
             if (cam_anguloz < 0)
                 cam_anguloz += 360;
             emit nuevoAnguloZ(cam_anguloz);
             break;
-        case 'o':
-        case 'O':
+
+        case Qt::Key_O:
             cam_anguloz += 5;
             if (cam_anguloz > 360)
                 cam_anguloz -= 360;
             emit nuevoAnguloZ(cam_anguloz);
             break;
-        case 'R':
-        case 'r':
+
+        case Qt::Key_R:
             reseteaCam();
             break;
+
         default: 
             ev->ignore();
             return;
@@ -73,13 +76,13 @@ void GLWidget::keyPressEvent(QKeyEvent *ev)
 //
 void GLWidget::mousePressEvent (QMouseEvent *ev)
 {
-    if (ev->button() == LeftButton) {
+    if (ev->button() == Qt::LeftButton) {
         // Guardamos los ángulos de la cámara, pero sólo los necesarios
         aux_angulox = cam_angulox;
         aux_anguloy = cam_anguloy;
-        if (ev->state() == ShiftButton) 
+        if (ev->modifiers() == Qt::ShiftModifier)
             seleccionaRobot(ev->x(), ev->y());
-    } else if (ev->button() == RightButton) {
+    } else if (ev->button() == Qt::RightButton) {
         // Guardamos el estado del panning
         aux_panx = cam_panx;
         aux_pany = cam_pany;
@@ -101,13 +104,13 @@ void GLWidget::mousePressEvent (QMouseEvent *ev)
 //
 void GLWidget::mouseMoveEvent (QMouseEvent *ev)
 {
-    if (ev->state() & LeftButton) {
+    if (ev->buttons() & Qt::LeftButton) {
         // Restauramos los ángulos guardados y sumamos las variaciones; luego
         // rectificamos los ángulos
         cam_anguloy = aux_anguloy + (ev->x() - aux_rx);
         cam_angulox = aux_angulox + (ev->y() - aux_ry);
         rectificaRotaciones(); // Los emits se hacen aquí
-    } else if (ev->state() & RightButton) {
+    } else if (ev->buttons() & Qt::RightButton) {
         // Restauramos el panning y sumamos las variaciones. Los casts se hacen
         // implícitamente
         cam_panx = aux_panx + (cam_avance * (ev->x() - aux_rx));
@@ -129,7 +132,7 @@ void GLWidget::mouseMoveEvent (QMouseEvent *ev)
 //
 void GLWidget::wheelEvent (QWheelEvent *ev)
 {
-    if (ev->state() == ControlButton) {
+    if (ev->modifiers() == Qt::ControlModifier) {
         cam_anguloa0 += signo(ev->delta()) * 4;
         ajustaApertura();
     } else {

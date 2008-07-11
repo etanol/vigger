@@ -4,7 +4,7 @@
 //
 #ifndef _VDISPLAY_H_
 #define _VDISPLAY_H_
-#include <qlineedit.h>
+#include <QLineEdit>
 
 
 class VDisplay : public QLineEdit {
@@ -13,8 +13,8 @@ class VDisplay : public QLineEdit {
 
 public:
 
-    VDisplay (QWidget *parent, const char *name = 0)
-            : QLineEdit(parent, name)
+    VDisplay (QWidget *parent)
+            : QLineEdit(parent)
     {
         // Adornamos un poco
         setFrame(FALSE);

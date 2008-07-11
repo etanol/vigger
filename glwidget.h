@@ -10,7 +10,7 @@
 #ifndef _GLWIDGET_H_
 #define _GLWIDGET_H_
 
-#include <qgl.h>
+#include <QGLWidget>
 #include <cmath>
 #include "modelo.h"
 
@@ -21,11 +21,11 @@ class GLWidget : public QGLWidget {
 
 public:
 
-    GLWidget  (QWidget *parent, const char *name = 0);
+    GLWidget  (QWidget *parent);
 
     // Métodos para cargar modelos
-    bool cargaEscenario (const char *fichero);
-    bool cargaRobots    (const char *fichero);
+    bool cargaEscenario (QString &fichero);
+    bool cargaRobots    (QString &fichero);
 
     // Métodos para gestionar luces y colores (luzcolor.cpp)
     bool luzActivada (int i);
@@ -149,7 +149,7 @@ private:
     double cam_znear;     // Planos de recorte
     double cam_zfar;
     double cam_zfarpri;
-    double cam_avance;    // Factor de movilidat
+    double cam_avance;    // Factor de movilidad
     double cam_distancia; // Distancia del observador a la escena
     bool   cam_primera;   // Flag para seleccionar 1a o 3a persona
 

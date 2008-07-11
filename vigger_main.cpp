@@ -1,4 +1,4 @@
-#include <qapplication.h>
+#include <QApplication>
 #include "ventana.h"
 
 int main( int argc, char ** argv )

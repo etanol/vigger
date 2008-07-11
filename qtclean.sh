@@ -1,8 +1,7 @@
 #! /bin/sh
 
 if [ -f Makefile ]; then
-	make distclean
-	rm Makefile
+    make distclean
 fi
 
 test -d .moc && rmdir .moc
