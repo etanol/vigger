@@ -96,15 +96,6 @@ void GLWidget::paintGL (void)
         if (!ilu_camara[i])
             glLightfv(GL_LIGHT0 + i, GL_POSITION, ilu_posicion[i]);
 
-    glColor3f(0.0, 1.0, 0.0);
-    glBegin(GL_QUADS);
-    glNormal3f(0.0, 0.0, 1.0);
-    glVertex3f(-0.5, -0.5, 0.0);
-    glVertex3f(-0.5,  0.5, 0.0);
-    glVertex3f( 0.5,  0.5, 0.0);
-    glVertex3f( 0.5, -0.5, 0.0);
-    glEnd();
-
     // Pintamos el escenario
     escenario.pinta();
 
