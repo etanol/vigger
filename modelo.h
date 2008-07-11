@@ -39,7 +39,7 @@ private:
     bool        hacer_rotacion;
     double      factor_escala;
     int         angulo_rotacion;
-    
+
     // Colores de luz por defecto
     static const float L_BRILLO_DEF;
     static const float L_AMBIENTE_DEF[4];

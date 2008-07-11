@@ -92,7 +92,7 @@ void GLWidget::timerEvent (QTimerEvent *ev)
     int    sig;
     double tmpx, tmpz;
 
-    for (int i = 0; i < ani_nrobots; i++) 
+    for (int i = 0; i < ani_nrobots; i++)
         if (ani_probot[i].gira) {
             // El robot gira
             sig = signo(ani_probot[i].angulo_destino - ani_probot[i].angulo);
@@ -152,7 +152,7 @@ void GLWidget::ajustaVLineal ()
 
 //
 // .: nuevoRobot [private] :.
-// 
+//
 // Inicializa el robot representado por "indice" dándole posición y dirección
 // inicial aleatorias. Hay que vigilar que estos valores sean correctos para
 // evitar las colisiones.
@@ -202,7 +202,7 @@ bool GLWidget::posicionValida (int indice, double x, double z)
             || (dz > (escenario.maxZ() - robot.radioXZ())))
         return false;
     // Ahora comprobamos que no pise a ningún otro robot, salvo él mismo claro
-    for (int i = 0; i < ani_nrobots; i++) 
+    for (int i = 0; i < ani_nrobots; i++)
         if (i != indice) {
             dx   = ani_probot[i].x - x;
             dz   = ani_probot[i].z - z;

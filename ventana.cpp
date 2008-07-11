@@ -104,7 +104,7 @@ void Ventana::cargaEscenario ()
     if (seleccionModelo->exec() == QDialog::Accepted) {
         if (glVista->cargaEscenario(seleccionModelo->selectedFiles()[0])) {
             // Ya podemos cargar robots
-            btnCargaRo->setEnabled(true); 
+            btnCargaRo->setEnabled(true);
         } else {
             // Imprime error
             QFileInfo fi(seleccionModelo->selectedFiles()[0]);
@@ -190,7 +190,7 @@ void Ventana::coordenadasLuz ()
     valx = txtlCoordX->text().toFloat(&okx);
     valy = txtlCoordY->text().toFloat(&oky);
     valz = txtlCoordZ->text().toFloat(&okz);
-    if (okx && oky && okz) { 
+    if (okx && oky && okz) {
         glVista->setPosLuz(cmbLuz->currentIndex(), valx, valy, valz,
                 cmbReferencia->currentIndex() == 0);
         glVista->updateGL();

@@ -91,7 +91,7 @@ void GLWidget::setDistancia (double dist)
 
 //
 // .: situaCamara [private] :.
-// 
+//
 // Coloca la cámara en su lugar, según el estado actual y el tipo de cámara
 // seleccionada. Con el parámetro "forzar_prim" a verdadero obligamos a colocar
 // la cámara en primera persona dependiendo del robot seleccionado, e ignorando
@@ -114,7 +114,7 @@ void GLWidget::situaCamara (bool forzar_prim)
 
 
 //
-// .: setPerspectiva [private] :. 
+// .: setPerspectiva [private] :.
 //
 // Igual que en "situaCamara()", aquí también debemos distingir entre diferentes
 // tipos de cámaras. El parámetro "forzar_prim" tiene el mismo significado. Aquí
@@ -159,7 +159,7 @@ void GLWidget::ajustaApertura ()
 //              / tan O  \
 //     W = atan | ------ |
 //              \   AR   /
-//            
+//
 // Donde "O" es la mitad del ángulo de apertura original, "W" es la mitad del
 // ángulo de apertura corregido y "AR" es la relación de aspecto.
 //
@@ -209,7 +209,7 @@ void GLWidget::ajustaRecorteZ ()
 
 
 //
-// .: rectificaRotaciones [private] :. 
+// .: rectificaRotaciones [private] :.
 //
 // A pesar de no ser necesario para OpenGL que los ángulos de rotación caigan en
 // el intervalo [0, 360) resulta práctico de cara a simplificar la conexión de

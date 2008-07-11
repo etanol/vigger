@@ -55,7 +55,7 @@ void GLWidget::keyPressEvent(QKeyEvent *ev)
             reseteaCam();
             break;
 
-        default: 
+        default:
             ev->ignore();
             return;
     }
@@ -65,7 +65,7 @@ void GLWidget::keyPressEvent(QKeyEvent *ev)
 
 
 //
-// .: mousePressEvent [protected virtual] :. 
+// .: mousePressEvent [protected virtual] :.
 //
 // Según el botón que es pulse rotaremos la escena o la desplazaremos (panning).
 // Nos guardamos las coordenadas iniciales (y otros estados de la cámara) para
