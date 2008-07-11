@@ -99,7 +99,7 @@ void GLWidget::timerEvent (QTimerEvent *ev)
             sig = signo(ani_probot[i].angulo_destino - ani_probot[i].angulo);
             ani_probot[i].angulo += sig * ani_vangular;
             if (sig!=signo(ani_probot[i].angulo_destino-ani_probot[i].angulo)) {
-                // Ens em passat de gir, toca avancar
+                // Nos hemos pasado de giro, toca avanzar
                 ani_probot[i].angulo = ani_probot[i].angulo_destino;
                 double rads = radianes(ani_probot[i].angulo);
                 ani_probot[i].cos_angulo = cos(rads) * ani_avance;

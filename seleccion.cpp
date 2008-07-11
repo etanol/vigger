@@ -167,7 +167,7 @@ void GLWidget::marcaVisibles()
             glPushMatrix();
             glTranslated(ani_probot[i].x, ani_arobots, ani_probot[i].z);
             glRotatef(ani_probot[i].angulo, 0.0, 1.0, 0.0);
-            robot.pinta(false, false); // No calen ni colors ni normals
+            robot.pinta(false, false); // No hacen falta ni colores ni normales 
             glPopMatrix();
             ani_probot[i].seleccionado = false;
         }
