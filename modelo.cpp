@@ -22,13 +22,14 @@ const float Modelo::L_ESPECULAR_DEF[4] = { 0.0, 0.0, 0.0, 1.0 };
 
 
 // Constructor
-Modelo::Modelo () : radio_esfera(0.0),     radio_xz(0.0),
-                    radio_esfera0(0.0),    radio_xz0(0.0),
-                    x_max(0.0),            y_max(0.0),         z_max(0.0),
-                    x_max0(0.0),           y_max0(0.0),        z_max0(0.0),
-                    hacer_escala(false),   factor_escala(1.0),
-                    hacer_rotacion(false), angulo_rotacion(0),
-                    fichero(0)
+Modelo::Modelo () : fichero(0),
+                    radio_esfera(0.0),   radio_esfera0(0.0),
+                    radio_xz(0.0),       radio_xz0(0.0),
+                    x_max(0.0),          x_max0(0.0),
+                    y_max(0.0),          y_max0(0.0),
+                    z_max(0.0),          z_max0(0.0),
+                    hacer_escala(false), hacer_rotacion(false),
+                    factor_escala(1.0),  angulo_rotacion(0)
 { }
 
 
