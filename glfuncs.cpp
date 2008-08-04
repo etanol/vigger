@@ -102,11 +102,13 @@ void GLWidget::paintGL (void)
 
     // Pintamos los robots
     for (int i = 0; i < ani_nrobots; i++)
-        if ((!cam_primera) || (i != sel_robot)) {
+        if ((!cam_primera) || (i != sel_robot))
+        {
             glPushMatrix();
             glTranslated(ani_probot[i].x, ani_arobots, ani_probot[i].z);
             glRotatef(ani_probot[i].angulo, 0.0, 1.0, 0.0);
-            if (ani_probot[i].seleccionado) {
+            if (ani_probot[i].seleccionado)
+            {
                 glMaterialfv(GL_FRONT_AND_BACK, GL_AMBIENT,
                                      col_sel_amb[ani_probot[i].tipo_seleccion]);
                 glMaterialfv(GL_FRONT_AND_BACK, GL_DIFFUSE,

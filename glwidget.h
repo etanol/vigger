@@ -159,7 +159,8 @@ private:
     // Esta estructura indica la posición actual y la dirección de movimiento de
     // un robot en particular. También se memorizan algunos valores para reducir
     // la carga computacional.
-    struct PosRobot {
+    struct PosRobot
+    {
         double cos_angulo;
         double sin_angulo;
         double x;

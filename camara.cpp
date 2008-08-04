@@ -64,7 +64,8 @@ void GLWidget::setCamPrimera (bool si)
 void GLWidget::setZFarCamPri (int z)
 {
     cam_zfarpri = decimal(z);
-    if (cam_primera) {
+    if (cam_primera)
+    {
         glMatrixMode(GL_PROJECTION);
         glLoadIdentity();
         setPerspectiva();
@@ -99,12 +100,15 @@ void GLWidget::setDistancia (double dist)
 //
 void GLWidget::situaCamara (bool forzar_prim)
 {
-    if (cam_primera || forzar_prim) {
+    if (cam_primera || forzar_prim)
+    {
         glRotatef(static_cast<GLfloat>(ani_probot[sel_robot].angulo + 180),
                                                                 0.0, -1.0, 0.0);
         glTranslated(-ani_probot[sel_robot].x, -ani_arobots,
                                                       -ani_probot[sel_robot].z);
-    } else {
+    }
+    else
+    {
         glTranslated(cam_panx, cam_pany, -cam_distancia);
         glRotatef(static_cast<GLfloat>(cam_anguloz), 0.0, 0.0, -1.0);
         glRotatef(static_cast<GLfloat>(cam_angulox), 1.0, 0.0,  0.0);
@@ -191,7 +195,8 @@ void GLWidget::ajustaRecorteZ ()
 {
     cam_znear = cam_distancia - escenario.radio();
     cam_zfar  = cam_znear + escenario.radio() * 2.0;
-    if (cam_znear < 0.1) {
+    if (cam_znear < 0.1)
+    {
         cam_znear = 0.1;
         cam_zfar  = 2.0 * escenario.radio();
     }

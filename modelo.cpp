@@ -73,7 +73,8 @@ void Modelo::computaEsferaEnvoltorio ()
     // Buscamos los puntos máximos y mínimos
     mesh = fichero->meshes;
     while (mesh != 0) {
-        for(unsigned int i = 0; i < mesh->points; i++) {
+        for(unsigned int i = 0; i < mesh->points; i++)
+        {
             double x = mesh->pointL[i].pos[0];
             double y = mesh->pointL[i].pos[1];
             double z = mesh->pointL[i].pos[2];
@@ -108,7 +109,8 @@ void Modelo::computaEsferaEnvoltorio ()
 
     mesh = fichero->meshes;
     while (mesh != 0) {
-        for (unsigned int i = 0; i < mesh->points; i++) {
+        for (unsigned int i = 0; i < mesh->points; i++)
+        {
             mesh->pointL[i].pos[0] -= centrox;
             mesh->pointL[i].pos[1] -= centroy;
             mesh->pointL[i].pos[2] -= centroz;
@@ -157,9 +159,10 @@ void Modelo::escala (double factor)
 //
 void Modelo::rota (int angulo)
 {
-    if (angulo == 0) {
+    if (angulo == 0)
         hacer_rotacion = false;
-    } else {
+    else
+    {
         hacer_rotacion  = true;
         angulo_rotacion = angulo;
     }
@@ -175,7 +178,8 @@ void Modelo::redimensiona (double nuevo_radio)
         return;
 
     // Si habíamos escalado antes, volvemos a los valores originales
-    if (hacer_escala) {
+    if (hacer_escala)
+    {
         radio_esfera = radio_esfera0;
         radio_xz     = radio_xz0;
         x_max        = x_max0;
@@ -203,19 +207,25 @@ void Modelo::pinta (bool con_color, bool con_normales)
         glRotatef(static_cast<GLfloat>(angulo_rotacion), 0.0, 1.0, 0.0);
 
     Lib3dsMesh *mesh = fichero->meshes;
-    while (mesh != 0) {
+    while (mesh != 0)
+    {
         glBegin(GL_TRIANGLES);
-        for (unsigned int i = 0; i < mesh->faces; i++) {
+        for (unsigned int i = 0; i < mesh->faces; i++)
+        {
             Lib3dsFace *f = &mesh->faceL[i];
 
-            if (con_color) {
+            if (con_color)
+            {
                 Lib3dsMaterial *m = lib3ds_file_material_by_name(fichero, f->material);
-                if (m) {
+                if (m)
+                {
                     glMaterialfv(GL_FRONT_AND_BACK, GL_AMBIENT,   m->ambient);
                     glMaterialfv(GL_FRONT_AND_BACK, GL_DIFFUSE,   m->diffuse);
                     glMaterialfv(GL_FRONT_AND_BACK, GL_SPECULAR,  m->specular);
                     glMaterialf (GL_FRONT_AND_BACK, GL_SHININESS, m->shininess);
-                } else {
+                }
+                else
+                {
                     // No hay color para esta cara; mala suerte, ponemos los
                     // colores por defecto
                     glMaterialfv(GL_FRONT_AND_BACK, GL_AMBIENT,   L_AMBIENTE_DEF);

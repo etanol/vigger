@@ -43,7 +43,8 @@ void GLWidget::activaLuz (int i, bool si)
 void GLWidget::getColLuz (int i, int t, int *col)
 {
     GLenum componente;
-    switch (t) {
+    switch (t)
+    {
         case  0: componente = GL_AMBIENT;  break;
         case  1: componente = GL_DIFFUSE;  break;
         case  2: componente = GL_SPECULAR; break;
@@ -68,7 +69,8 @@ void GLWidget::getColLuz (int i, int t, int *col)
 void GLWidget::setColLuz (int i, int t, int r, int g, int b)
 {
     GLenum componente;
-    switch (t) {
+    switch (t)
+    {
         case  0: componente = GL_AMBIENT;  break;
         case  1: componente = GL_DIFFUSE;  break;
         case  2: componente = GL_SPECULAR; break;

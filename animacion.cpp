@@ -18,9 +18,11 @@
 void GLWidget::setNumRobots (int num)
 {
     num = (num > MAX_ROBOTS ? MAX_ROBOTS : num);
-    if (num <= ani_nrobots) {
+    if (num <= ani_nrobots)
+    {
         ani_nrobots = num;
-        if (sel_robot >= ani_nrobots) {
+        if (sel_robot >= ani_nrobots)
+        {
             ani_probot[sel_robot].seleccionado = false;
             sel_robot   = -1;
             cam_primera = false;
@@ -30,10 +32,13 @@ void GLWidget::setNumRobots (int num)
                     ani_probot[i].seleccionado = false;
             emit nuevaSel(sel_robot);
         }
-    } else {
+    }
+    else
+    {
         // El incremento se debe hacer poco a poco para asegurarnos de colocar
         // cada robot correctamente
-        while (ani_nrobots < num) {
+        while (ani_nrobots < num)
+        {
             ani_nrobots++;
             nuevoRobot(ani_nrobots - 1);
         }
@@ -54,7 +59,8 @@ void GLWidget::setNumRobots (int num)
 void GLWidget::setFPS (int fps)
 {
     ani_tinterval = 1000 / fps;
-    if (ani_timer) {
+    if (ani_timer)
+    {
         killTimer(ani_timer);
         ani_timer = startTimer(ani_tinterval);
     }
@@ -70,9 +76,10 @@ void GLWidget::setFPS (int fps)
 //
 void GLWidget::animaRobots (bool si)
 {
-    if (si) {
+    if (si)
         ani_timer = startTimer(ani_tinterval);
-    } else {
+    else
+    {
         killTimer(ani_timer);
         ani_timer = 0;
     }
@@ -93,11 +100,13 @@ void GLWidget::timerEvent (QTimerEvent *ev)
     double tmpx, tmpz;
 
     for (int i = 0; i < ani_nrobots; i++)
-        if (ani_probot[i].gira) {
+        if (ani_probot[i].gira)
+        {
             // El robot gira
             sig = signo(ani_probot[i].angulo_destino - ani_probot[i].angulo);
             ani_probot[i].angulo += sig * ani_vangular;
-            if (sig!=signo(ani_probot[i].angulo_destino-ani_probot[i].angulo)) {
+            if (sig != signo(ani_probot[i].angulo_destino-ani_probot[i].angulo))
+            {
                 // Nos hemos pasado de giro, toca avanzar
                 ani_probot[i].angulo = ani_probot[i].angulo_destino;
                 double rads = radianes(ani_probot[i].angulo);
@@ -105,15 +114,20 @@ void GLWidget::timerEvent (QTimerEvent *ev)
                 ani_probot[i].sin_angulo = sin(rads) * ani_avance;
                 ani_probot[i].gira       = false;
             }
-        } else {
+        }
+        else
+        {
             // El robot avanza
             tmpx = ani_probot[i].x + ani_probot[i].sin_angulo;
             tmpz = ani_probot[i].z + ani_probot[i].cos_angulo;
-            if (posicionValida(i, tmpx, tmpz)) {
+            if (posicionValida(i, tmpx, tmpz))
+            {
                 // Posición correcta, avanzamos
                 ani_probot[i].x = tmpx;
                 ani_probot[i].z = tmpz;
-            } else {
+            }
+            else
+            {
                 // Colisión, cambio de dirección
                 ani_probot[i].angulo_destino = random() % 360;
                 ani_probot[i].gira           = true;
@@ -141,7 +155,8 @@ void GLWidget::ajustaVLineal ()
 
     ani_avance = decimal(ani_vlineal) * escenario.radioXZ() * 0.1;
     for (int i = 0; i < ani_nrobots; i++)
-        if (!ani_probot[i].gira) {
+        if (!ani_probot[i].gira)
+        {
             // Sólo si el robot avanza
             rads = radianes(ani_probot[i].angulo);
             ani_probot[i].cos_angulo = cos(rads) * ani_avance;
@@ -203,7 +218,8 @@ bool GLWidget::posicionValida (int indice, double x, double z)
         return false;
     // Ahora comprobamos que no pise a ningún otro robot, salvo él mismo claro
     for (int i = 0; i < ani_nrobots; i++)
-        if (i != indice) {
+        if (i != indice)
+        {
             dx   = ani_probot[i].x - x;
             dz   = ani_probot[i].z - z;
             dist = sqrt((dx*dx) + (dz*dz));

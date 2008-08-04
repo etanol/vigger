@@ -62,7 +62,8 @@ bool GLWidget::cargaEscenario (QString &fichero)
     for (int i = 0; i < ani_nrobots; i++)
         nuevoRobot(i);
     // Así mismo, si había algún robot seleccionado lo debemos restaurar
-    if (sel_robot >= 0) {
+    if (sel_robot >= 0)
+    {
         ani_probot[sel_robot].seleccionado   = true;
         ani_probot[sel_robot].tipo_seleccion = 0;
     }
@@ -89,7 +90,8 @@ bool GLWidget::cargaRobots (QString &fichero)
     for (int i = 0; i < ani_nrobots; i++)
         nuevoRobot(i);
     // Igual que antes, cuidado con el seleccionado
-    if (sel_robot >= 0) {
+    if (sel_robot >= 0)
+    {
         ani_probot[sel_robot].seleccionado   = true;
         ani_probot[sel_robot].tipo_seleccion = 0;
     }

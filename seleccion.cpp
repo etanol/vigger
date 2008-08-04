@@ -68,7 +68,8 @@ void GLWidget::seleccionaRobot (int x, int y)
     // Pintamos los robots salvo el que hace de primera persona si la cámara
     // está en tal estado
     for (int i = 0; i < ani_nrobots; i++)
-        if ((!cam_primera) || (i != sel_robot)) {
+        if ((!cam_primera) || (i != sel_robot))
+        {
             glLoadName(i);
             glPushMatrix();
             glTranslated(ani_probot[i].x, ani_arobots, ani_probot[i].z);
@@ -98,7 +99,8 @@ void GLWidget::seleccionaRobot (int x, int y)
     if (escogido == -1)
         return;
 
-    if (sel_robot >= 0) {
+    if (sel_robot >= 0)
+    {
         // El robot escogido es diferente al seleccionado, nada tampoco
         if (escogido != sel_robot)
             return;
@@ -110,7 +112,9 @@ void GLWidget::seleccionaRobot (int x, int y)
         else
             ani_probot[escogido].seleccionado = false;
         sel_robot = -1;
-    } else {
+    }
+    else
+    {
         // El robot escogido pasa a ser el robot seleccionado
         ani_probot[escogido].seleccionado   = true;
         ani_probot[escogido].tipo_seleccion = 0;
@@ -162,7 +166,8 @@ void GLWidget::marcaVisibles()
     // Pintamos todos salvo el seleccionado; también aprovechamos este bucle
     // para desmarcarlos, luego se volverán a marcar con los hits
     for (int i = 0; i < ani_nrobots; i++)
-        if (i != sel_robot) {
+        if (i != sel_robot)
+        {
             glLoadName(i);
             glPushMatrix();
             glTranslated(ani_probot[i].x, ani_arobots, ani_probot[i].z);
@@ -180,7 +185,8 @@ void GLWidget::marcaVisibles()
 
     // Procesamos los hits y marcamos lo que haga falta
     hits = glRenderMode(GL_RENDER) * 4;
-    for (int i = 0; i < hits; i += 4) {
+    for (int i = 0; i < hits; i += 4)
+    {
         ani_probot[sbuffer[i+3]].seleccionado   = true;
         ani_probot[sbuffer[i+3]].tipo_seleccion = 1;
     }

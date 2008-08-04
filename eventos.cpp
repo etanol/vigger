@@ -14,7 +14,8 @@
 //
 void GLWidget::keyPressEvent(QKeyEvent *ev)
 {
-    switch (ev->key()) {
+    switch (ev->key())
+    {
         case Qt::Key_A:
             cam_anguloa0 += 5;
             ajustaApertura();
@@ -76,13 +77,16 @@ void GLWidget::keyPressEvent(QKeyEvent *ev)
 //
 void GLWidget::mousePressEvent (QMouseEvent *ev)
 {
-    if (ev->button() == Qt::LeftButton) {
+    if (ev->button() == Qt::LeftButton)
+    {
         // Guardamos los ángulos de la cámara, pero sólo los necesarios
         aux_angulox = cam_angulox;
         aux_anguloy = cam_anguloy;
         if (ev->modifiers() == Qt::ShiftModifier)
             seleccionaRobot(ev->x(), ev->y());
-    } else if (ev->button() == Qt::RightButton) {
+    }
+    else if (ev->button() == Qt::RightButton)
+    {
         // Guardamos el estado del panning
         aux_panx = cam_panx;
         aux_pany = cam_pany;
@@ -104,13 +108,16 @@ void GLWidget::mousePressEvent (QMouseEvent *ev)
 //
 void GLWidget::mouseMoveEvent (QMouseEvent *ev)
 {
-    if (ev->buttons() & Qt::LeftButton) {
+    if (ev->buttons() & Qt::LeftButton)
+    {
         // Restauramos los ángulos guardados y sumamos las variaciones; luego
         // rectificamos los ángulos
         cam_anguloy = aux_anguloy + (ev->x() - aux_rx);
         cam_angulox = aux_angulox + (ev->y() - aux_ry);
         rectificaRotaciones(); // Los emits se hacen aquí
-    } else if (ev->buttons() & Qt::RightButton) {
+    }
+    else if (ev->buttons() & Qt::RightButton)
+    {
         // Restauramos el panning y sumamos las variaciones.  Los casts se hacen
         // implícitamente
         cam_panx = aux_panx + (cam_avance * (ev->x() - aux_rx));
@@ -132,10 +139,13 @@ void GLWidget::mouseMoveEvent (QMouseEvent *ev)
 //
 void GLWidget::wheelEvent (QWheelEvent *ev)
 {
-    if (ev->modifiers() == Qt::ControlModifier) {
+    if (ev->modifiers() == Qt::ControlModifier)
+    {
         cam_anguloa0 += signo(ev->delta()) * 4;
         ajustaApertura();
-    } else {
+    }
+    else
+    {
         cam_distancia += (signo(ev->delta())*16) * cam_avance;
         emit nuevaDist(entero(cam_distancia));
         ajustaRecorteZ();

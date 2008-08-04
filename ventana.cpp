@@ -111,11 +111,12 @@ void Ventana::cargaAyuda ()
 //
 void Ventana::cargaEscenario ()
 {
-    if (seleccionModelo->exec() == QDialog::Accepted) {
-        if (glVista->cargaEscenario(seleccionModelo->selectedFiles()[0])) {
-            // Ya podemos cargar robots
-            btnCargaRo->setEnabled(true);
-        } else {
+    if (seleccionModelo->exec() == QDialog::Accepted)
+    {
+        if (glVista->cargaEscenario(seleccionModelo->selectedFiles()[0]))
+            btnCargaRo->setEnabled(true);  // Ya podemos cargar robots
+        else
+        {
             // Imprime error
             QFileInfo fi(seleccionModelo->selectedFiles()[0]);
             QMessageBox::critical(this, "Error",
@@ -132,8 +133,10 @@ void Ventana::cargaEscenario ()
 //
 void Ventana::cargaRobot ()
 {
-    if (seleccionModelo->exec() == QDialog::Accepted) {
-        if (!glVista->cargaRobots(seleccionModelo->selectedFiles()[0])) {
+    if (seleccionModelo->exec() == QDialog::Accepted)
+    {
+        if (!glVista->cargaRobots(seleccionModelo->selectedFiles()[0]))
+        {
             // Error
             QFileInfo fi(seleccionModelo->selectedFiles()[0]);
             QMessageBox::critical(this, "Error",
@@ -200,15 +203,16 @@ void Ventana::coordenadasLuz ()
     valx = txtlCoordX->text().toFloat(&okx);
     valy = txtlCoordY->text().toFloat(&oky);
     valz = txtlCoordZ->text().toFloat(&okz);
-    if (okx && oky && okz) {
+    if (okx && oky && okz)
+    {
         glVista->setPosLuz(cmbLuz->currentIndex(), valx, valy, valz,
                 cmbReferencia->currentIndex() == 0);
         glVista->updateGL();
-    } else {
+    }
+    else
         QMessageBox::critical(this, "Error",
                 "Coordenadas incorrectas", QMessageBox::Ok,
                 QMessageBox::NoButton);
-    }
 }
 
 
