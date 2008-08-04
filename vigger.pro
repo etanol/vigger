@@ -29,8 +29,9 @@ FORMS    = ayuda.ui \
            ventana.ui
 
 unix {
-  UI_DIR      = .ui
-  MOC_DIR     = .moc
-  OBJECTS_DIR = .obj
+  UI_DIR          = .ui
+  MOC_DIR         = .moc
+  OBJECTS_DIR     = .obj
+  QMAKE_CXXFLAGS += -O3
 }
 
