@@ -73,7 +73,8 @@ void Modelo::computaEsferaEnvoltorio ()
 
     // Buscamos los puntos máximos y mínimos
     mesh = fichero->meshes;
-    while (mesh != 0) {
+    while (mesh != 0)
+    {
         for(unsigned int i = 0; i < mesh->points; i++)
         {
             double x = mesh->pointL[i].pos[0];
@@ -109,7 +110,8 @@ void Modelo::computaEsferaEnvoltorio ()
     maxx -= centrox; maxy -= centroy; maxz -= centroz;
 
     mesh = fichero->meshes;
-    while (mesh != 0) {
+    while (mesh != 0)
+    {
         for (unsigned int i = 0; i < mesh->points; i++)
         {
             mesh->pointL[i].pos[0] -= centrox;
