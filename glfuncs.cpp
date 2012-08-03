@@ -3,6 +3,7 @@
 //                desde las librerías Qt.
 //
 #include <GL/gl.h>
+#include <GL/glu.h>
 #include "glwidget.h"
 
 
